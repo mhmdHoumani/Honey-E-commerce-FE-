@@ -1,10 +1,10 @@
-
+import Footer from './componenets/footer/footer';
 import './App.css';
 
 function App() {
   return (
     <div className="App">
-   test123
+   <Footer/>
     </div>
   );
 }
