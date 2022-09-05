@@ -1,10 +1,10 @@
-
+import AboutUs from './pages/aboutUs/aboutUs';
 import './App.css';
 
 function App() {
   return (
     <div className="App">
-   test123
+   <AboutUs/>
     </div>
   );
 }
