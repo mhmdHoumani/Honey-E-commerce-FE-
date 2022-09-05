@@ -3,3 +3,9 @@
  padding: 0;
 }
 
+:root{
+  --yellow:#fbc41f ;
+  --black:#231f1e ;
+  --white: #f3f1eb;
+
+}
