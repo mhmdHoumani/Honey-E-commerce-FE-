@@ -12,7 +12,7 @@ const AboutUs = () => {
       <div className="body">
         <div className="section1">
           <div className="leftSection1">
-            <img src={honeyDrops}  alt="honey drops" />
+            <img src={honeyDrops} alt="honey drops" />
           </div>
           <div className="rightSection1">
             <div>
@@ -78,7 +78,7 @@ const AboutUs = () => {
             <img src={honeyJar} alt="honey Jar" />
           </div>
         </div>
-        <h3>Our Clients</h3>
+        <h3>Featured Clients</h3>
         <div className="section3">
           <div className="clients">
             <p>AL - Yamani</p>
@@ -87,7 +87,6 @@ const AboutUs = () => {
             <p>client 4</p>
           </div>
           <div className="socials">
-            <p>social 1</p>
             <p>social 1</p>
             <p>social 1</p>
             <p>social 1</p>
