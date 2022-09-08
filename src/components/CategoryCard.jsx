@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import Honey from "../images/Honey.png";
+import Honey from "../Images/Honey.png";
 import { categories } from "../data";
 import { mobile } from "../responsive";
 
