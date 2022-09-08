@@ -5,7 +5,7 @@ import honeyJar from "../../Assets/Images/honeyJar.jpg";
 
 const AboutUs = () => {
   return (
-    <div>
+    <div id="about">
       <div className="banner">
         <h1>About Us</h1>
       </div>
