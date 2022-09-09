@@ -4,7 +4,7 @@ import styled from "styled-components";
 import { sliderItems } from "../data";
 // import {mobile} from "../responsive"
 
-import batata from "../Images/20220628_132624.jpg";
+import batata from "../Assets/Images/20220628_132624.jpg";
 
 const Container = styled.div`
   width: 100%;
