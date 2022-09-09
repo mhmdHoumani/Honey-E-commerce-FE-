@@ -1,14 +1,16 @@
-import "./login.css";
+// import "./login.css";
 import React, { useState } from "react";
-import "./login.css";
+import "./signUp.css";
 import { Button, Box, TextField, Alert } from "@mui/material"
+import { useNavigate } from "react-router-dom";
 const SignUp = () => {
     const [password, setPassword] = useState("");
     const [email, setEmail] = useState("");
+    const [name, setName] = useState("");
     const [generalError, setGeneralError] = useState("");
     const [emailError, setEmailError] = useState("");
     const [passwordError, setPasswordError] = useState("");
-    //   const navigate = useNavigate();
+      const navigate = useNavigate();
   
   
     //   useEffect(() => {
@@ -63,9 +65,9 @@ const SignUp = () => {
             sx={{
               height: "40px",
               transform: "scale(1.3)",
-              width: "10rem",
+              width: "12rem",
               position: "absolute",
-              top: "20%",
+              top: "17%",
             }}
           >
             {generalError}
@@ -74,6 +76,19 @@ const SignUp = () => {
 
         <h1>LOGO</h1>
         <h2>Please enter your email and password.</h2>
+        <TextField
+          onChange={(e) => {
+            setEmail(e.target.value);
+            setGeneralError("");
+          }}
+          className="input"
+          id="outlined-basic"
+          label="Name"
+          error={generalError}
+          helperText={emailError}
+          required
+          variant="outlined"
+        />
         <TextField
           onChange={(e) => {
             setEmail(e.target.value);
@@ -104,7 +119,7 @@ const SignUp = () => {
         />
         <Button
           className="loginBtn"
-          onClick={login}
+          onClick={login}  
           variant="outlined"
           sx={{
             height: "4vh",
@@ -120,9 +135,10 @@ const SignUp = () => {
         <Button
           className="notMemberBtn"
           href="#text-buttons"
-          sx={{ width: "12vw", letterSpacing: "2px", color: "var(--black)" }}
+          onClick={()=>navigate("/login")}
+          sx={{ width: "14vw", letterSpacing: "2px", color: "var(--black)" }}
         >
-          Not a member? Sign up.
+          Already a member? Log in.
         </Button>
       </div>
     </Box>
