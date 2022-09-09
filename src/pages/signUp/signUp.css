@@ -18,6 +18,7 @@
     min-width: 30vw;
     padding: 26px;
     display: flex;
+    /* border: 1px var(--white) solid; */
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -37,6 +38,9 @@
   
   
    .input {
+    box-shadow: 12px -1px 153px -17px rgba(0, 0, 0, 0.22);
+    -webkit-box-shadow: 12px -1px 153px -17px rgba(0, 0, 0, 0.22);
+    -moz-box-shadow: 12px -1px 153px -17px rgba(0, 0, 0, 0.22);
     width: 85% !important; 
   }
   

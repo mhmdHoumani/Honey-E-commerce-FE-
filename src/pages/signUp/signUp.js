@@ -67,7 +67,8 @@ const SignUp = () => {
               transform: "scale(1.3)",
               width: "12rem",
               position: "absolute",
-              top: "17%",
+              top: "16%",
+              boxShadow:"4",
             }}
           >
             {generalError}
@@ -130,7 +131,7 @@ const SignUp = () => {
             backgroundColor: "var(--black)",
           }}
         >
-          Submit
+          Sign Up
         </Button>
         <Button
           className="notMemberBtn"
