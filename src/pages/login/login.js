@@ -1,25 +1,32 @@
 import "./login.css";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import "./login.css";
 import { Button, Box, TextField, Alert } from "@mui/material";
 
-const Login = () => {
+const Login = (props) => {
   const [password, setPassword] = useState("");
   const [email, setEmail] = useState("");
   const [generalError, setGeneralError] = useState("");
   const [emailError, setEmailError] = useState("");
   const [passwordError, setPasswordError] = useState("");
-  //   const navigate = useNavigate();
+  const navigate = useNavigate();
 
 
-  //   useEffect(() => {
-  //     const token = localStorage.getItem("token");
-  //     // I need to validate if the token is a valid
-  //     if (token) {
-  //       useNavigate("/");
-  //     }
-  //   }, []);
+    useEffect(() => {
+      const token = localStorage.getItem("token");
+      // I need to validate if the token is a valid
+      if (token) {
+        navigate("/");
+      }
+      else{
+        props.setLogin(true)
+      }
+    }, []);
 
+  useEffect(() => {
+  }, [])
+  
   async function login(e) {
     e.preventDefault();
     setGeneralError("");
@@ -35,14 +42,18 @@ const Login = () => {
       });
       localStorage.setItem("token", JSON.stringify(result.token));
       result = await result.json();
-      console.log(result.message);
+      console.log(result);
       if (result.message) {
         setGeneralError(result.message);
       }
-      localStorage.setItem("token", JSON.stringify(result.token));
-      localStorage.setItem("id", JSON.stringify(result.admin.id));
-      return;
-      // navigate("/");
+      else{
+        localStorage.setItem("token", JSON.stringify(result.token));
+        localStorage.setItem("id", JSON.stringify(result._id));
+       
+        props.setLogin(false);
+        navigate("/");
+
+      }
     } catch (err) {
       console.log(err);
     }
