@@ -1,5 +1,5 @@
 
-import { Card } from "../componenets/Card";
+import { Card } from "../components/Card";
 import React from 'react'
 import styled from "styled-components";
 import { mobile, tablet } from "../responsive";
