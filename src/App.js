@@ -8,6 +8,7 @@ import Home from "./pages/home/Home";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Navbar from "./components/NavBar";
 import { Announcement } from "./components/Announcement";
+import SignUp from "./pages/signUp/signUp.js"
 
 import { Product } from "./pages/Product";
 
@@ -16,13 +17,13 @@ function App() {
     <div className="App">
 
       <BrowserRouter>
-      
-        <Announcement />
-        <Navbar />
+      <SignUp/>
+        {/* <Announcement /> */}
+        {/* <Navbar /> */}
 
         <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/aboutUs" element={<AboutUs />} />
+          {/* <Route path="/" element={<Home />} /> */}
+          {/* <Route path="/aboutUs" element={<AboutUs />} /> */}
         </Routes>
         
       </BrowserRouter>
