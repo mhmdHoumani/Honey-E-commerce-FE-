@@ -1,6 +1,6 @@
 import React from "react";
 import "./footer.css";
-import { AiOutlineInstagram } from "react-icons/ai";
+import { AiOutlineInstagram , AiOutlineArrowUp } from "react-icons/ai";
 import { RiFacebookFill } from "react-icons/ri";
 
 const Footer = () => {
@@ -10,19 +10,32 @@ const Footer = () => {
         <div className="container_content_footer">
           <div className="LOGO_div">LOGO</div>
           <div className="List_div">
-            <a className="" href=""> HOME</a>
+            <a className="" href="">
+              HOME
+            </a>
             <a href=""> HOME</a>
             <a href=""> HOME</a>
-
-            {/* <ul className='List_div'>
-          <li>h1</li>
-          <li>h1</li>
-          <li>h1</li>
-        </ul> */}
           </div>
           <div className="socialMedia_div">
-            <RiFacebookFill />
-            <AiOutlineInstagram />
+            <a className="" href="https://www.facebook.com/">
+              {" "}
+              <RiFacebookFill />
+            </a>
+            <a className="" href="https://www.instagram.com/">
+              {" "}
+              <AiOutlineInstagram />
+            </a>
+          
+          </div>
+        </div>
+
+        <div className="buttom_footer">
+          <div className="button_container">
+            <button className="button_footer">Sign UP</button>
+          </div>
+          <div className="arrow_bottom">
+          <a><AiOutlineArrowUp/></a>
+
           </div>
         </div>
       </div>

@@ -1,16 +1,21 @@
 
 .container_footer{
-    max-width: 1440px;
-    height: 242px;
-    padding-top: 100px;
-    padding-bottom: 50px;
-    background-color: #fbc41f;;
+     max-width: 1440px;
+     height: 242px;
+    margin:auto 0px;
+    border-radius: 5px;
+    background-color: #fdfdfd;
+    box-shadow: 12px -1px 153px -17px rgba(0, 0, 0, 0.22);
+    -webkit-box-shadow: 12px -1px 153px -17px rgba(0, 0, 0, 0.22);
+    -moz-box-shadow: 12px -1px 153px -17px rgba(0, 0, 0, 0.22);
 }
 .container_content_footer{
+    
     max-width: 80%;
     height:140px;
     margin: auto;
-    background-color: aliceblue;
+    
+    /* background-color: aliceblue; */
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -33,4 +38,65 @@
 
 .List_div a:hover {
     color: #fbc41f;
-  }
+}
+
+.buttom_footer{
+border-top: 1px solid #e4e4e4;
+
+
+}
+.button_container{
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 1%;
+}
+
+.button_footer{
+    border-width: 0;
+    cursor: pointer;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    float: none;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    margin: 10px 0 0;
+    outline: none;
+    appearance: none;
+    -webkit-appearance: none;
+    line-height: 24px;
+    border-radius: 50px;
+    padding: 15px 35px 15px 35px;
+    color: black;
+    background-color: #fbc41f;
+    text-transform: uppercase;
+}
+.button_footer:hover{
+    color: white;
+    background-color: black;
+}
+.socialMedia_div > a{
+    text-decoration: none;
+    color: black;
+}
+.socialMedia_div > a:hover{
+    color: #fbc41f;
+ 
+}
+
+.arrow_bottom a{
+   background-color: #fbc41f;
+   position: fixed;
+    bottom: 10px;
+    right: 10px;
+    width: 50px;
+    height: 50px;
+    text-align: center;
+    line-height: 50px;
+    color: black;
+    border-radius: 50px;
+    /* z-index: 2; */
+}
