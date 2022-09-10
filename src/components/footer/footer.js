@@ -1,7 +1,9 @@
 import React from "react";
 import "./footer.css";
-import { AiOutlineInstagram , AiOutlineArrowUp } from "react-icons/ai";
+import { AiOutlineInstagram , AiOutlineArrowUp ,AiOutlineWhatsApp} from "react-icons/ai";
 import { RiFacebookFill } from "react-icons/ri";
+import { NavLink } from "react-router-dom";
+
 
 const Footer = () => {
   return (
@@ -10,11 +12,11 @@ const Footer = () => {
         <div className="container_content_footer">
           <div className="LOGO_div">LOGO</div>
           <div className="List_div">
-            <a className="" href="">
-              HOME
-            </a>
-            <a href=""> HOME</a>
-            <a href=""> HOME</a>
+           
+            <NavLink to="/">HOME</NavLink>
+            <NavLink to="/product">PRODUCT</NavLink>
+            <NavLink to="/aboutUs">ABOUT US</NavLink>
+         
           </div>
           <div className="socialMedia_div">
             <a className="" href="https://www.facebook.com/">
@@ -24,6 +26,10 @@ const Footer = () => {
             <a className="" href="https://www.instagram.com/">
               {" "}
               <AiOutlineInstagram />
+            </a>
+            <a className="" href="https://www.whatsapp.com/">
+              {" "}
+              <AiOutlineWhatsApp />
             </a>
           
           </div>
