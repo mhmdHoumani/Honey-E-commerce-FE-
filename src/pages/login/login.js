@@ -15,7 +15,7 @@ const Login = (props) => {
 
     useEffect(() => {
       const token = localStorage.getItem("token");
-      
+
       // I need to validate if the token is a valid
       if (token) {
         navigate("/");

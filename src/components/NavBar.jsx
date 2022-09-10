@@ -107,6 +107,10 @@ export default function Navbar() {
           </MenuItem>
 
           <MenuItem>
+            <NavLink to="/product">PRODUCT</NavLink>
+          </MenuItem>
+
+          <MenuItem>
             <Badge badgeContent={4} color="primary">
               <ShoppingCartOutlined />
             </Badge>
