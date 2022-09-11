@@ -103,11 +103,11 @@ export default function Navbar() {
           </MenuItem>
 
           <MenuItem>
-            <NavLink to="/aboutUs">ABOUT US</NavLink>
+            <NavLink to="/product">PRODUCT</NavLink>
           </MenuItem>
 
           <MenuItem>
-            <NavLink to="/product">PRODUCT</NavLink>
+            <NavLink to="/aboutUs">ABOUT US</NavLink>
           </MenuItem>
 
           <MenuItem>
