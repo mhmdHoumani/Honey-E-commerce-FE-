@@ -2,7 +2,7 @@ import { ArrowLeftOutlined, ArrowRightOutlined } from "@material-ui/icons";
 import { useState } from "react";
 import styled from "styled-components";
 import { sliderItems } from "../data";
-// import {mobile} from "../responsive"
+import {mobile} from "../responsive"
 
 import batata from "../Assets/Images/20220628_132624.jpg";
 
@@ -13,6 +13,8 @@ const Container = styled.div`
   position: relative;
   overflow: hidden;
   color: white;
+  ${mobile({display: "none"})};
+
 `;
 
 const Arrow = styled.div`
