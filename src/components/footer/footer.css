@@ -24,6 +24,7 @@
 .LOGO_div{
     /* justify-content: center; */
 }
+
 .List_div{
     display: flex;
     min-width: 20%;
