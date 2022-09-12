@@ -21,7 +21,9 @@ const Login = (props) => {
         navigate("/");
       }
       else{
-        props.setLogin(true)
+        // props.setLogin(true)
+        navigate("/login");
+
       }
     }, []);
 
