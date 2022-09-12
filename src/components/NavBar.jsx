@@ -10,11 +10,13 @@ import { NavLink } from "react-router-dom";
 // import { mobile } from "../responsive";
 
 const Container = styled.div`
-  height: 60px;
+  height: auto;
   position: absolute;
   z-index: 1;
   width: 100%;
   color: white;
+  background-color:rgba(0,0,0,0.4);
+
 `;
 const Wrapper = styled.div`
   padding: 10px 20px;
@@ -71,12 +73,15 @@ const MenuItem = styled.div`
   cursor: pointer;
   margin-left: 25px;
   color: white;
-  decoration: none;
+  text-decoration: none;
+  list-style-type: none;
   && a::after {
-    decoration: none;
+    text-decoration: none;
     color: white;
   }
 `;
+
+
 
 export default function Navbar() {
   return (
@@ -99,15 +104,15 @@ export default function Navbar() {
             {/* SIGN IN */}
           </MenuItem>
           <MenuItem>
-            <NavLink to="/">HOME</NavLink>
+            <NavLink style={{textDecoration:"none", color:"white"}} to="/">HOME</NavLink>
           </MenuItem>
 
           <MenuItem>
-            <NavLink to="/product">PRODUCT</NavLink>
+            <NavLink style={{textDecoration:"none", color:"white"}} to="/product">PRODUCT</NavLink>
           </MenuItem>
 
           <MenuItem>
-            <NavLink to="/aboutUs">ABOUT US</NavLink>
+            <NavLink style={{textDecoration:"none", color:"white"}} to="/aboutUs">ABOUT US</NavLink>
           </MenuItem>
 
           <MenuItem>

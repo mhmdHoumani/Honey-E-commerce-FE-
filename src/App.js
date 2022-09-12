@@ -22,7 +22,7 @@ function App() {
     
       <BrowserRouter>
       
-        <Announcement />
+        {/* <Announcement /> */}
         {!login && <Navbar />}
 
         <Routes>
