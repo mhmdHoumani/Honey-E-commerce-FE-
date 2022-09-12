@@ -15,8 +15,7 @@ const Container = styled.div`
   z-index: 1;
   width: 100%;
   color: white;
-  background-color:rgba(0,0,0,0.4);
-
+  background-color: rgba(0, 0, 0, 0.7);
 `;
 const Wrapper = styled.div`
   padding: 10px 20px;
@@ -81,8 +80,6 @@ const MenuItem = styled.div`
   }
 `;
 
-
-
 export default function Navbar() {
   return (
     <Container>
@@ -104,15 +101,27 @@ export default function Navbar() {
             {/* SIGN IN */}
           </MenuItem>
           <MenuItem>
-            <NavLink style={{textDecoration:"none", color:"white"}} to="/">HOME</NavLink>
+            <NavLink style={{ textDecoration: "none", color: "white" }} to="/">
+              HOME
+            </NavLink>
           </MenuItem>
 
           <MenuItem>
-            <NavLink style={{textDecoration:"none", color:"white"}} to="/product">PRODUCT</NavLink>
+            <NavLink
+              style={{ textDecoration: "none", color: "white" }}
+              to="/product"
+            >
+              PRODUCT
+            </NavLink>
           </MenuItem>
 
           <MenuItem>
-            <NavLink style={{textDecoration:"none", color:"white"}} to="/aboutUs">ABOUT US</NavLink>
+            <NavLink
+              style={{ textDecoration: "none", color: "white" }}
+              to="/aboutUs"
+            >
+              ABOUT US
+            </NavLink>
           </MenuItem>
 
           <MenuItem>
