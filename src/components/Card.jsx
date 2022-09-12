@@ -5,16 +5,19 @@ import Honey from "../Assets/Images/Honey.png";
 export const CardWrapper = styled.div`
   overflow: hidden;
   padding: 0 0 32px;
-  margin: 48px auto 0;
-  margin-bottom: 2%;
+  // margin: 48px auto 0;
+  margin-top: 17%;
+// margin-bottom: 2%;
   width: 384px;
   font-family: Quicksand, arial, sans-serif;
   box-shadow: 0 0 10px 0 #bbbbbb;
   border-radius: 7px;
+ 
+
 `;
 
 export const CardHeader = styled.header`
-//   padding-top: 32px;
+  //   padding-top: 32px;
   padding-bottom: 32px;
 `;
 
@@ -27,9 +30,7 @@ export const CardHeading = styled.h1`
 export const CardImage = styled.img`
   width: 384px;
   height: 384px;
-  object-fit:contain;
-  
-
+  object-fit: contain;
 `;
 export const ProductDetails = styled.div`
   text-align: center;
@@ -46,7 +47,6 @@ export const ProductDesc = styled.h4`
   font: inherit;
 `;
 export const ProductPrice = styled.p`
-
   font-weight: 600;
   margin: 20px 0;
   margin-right: 10px;
@@ -58,7 +58,6 @@ export const ProductPrice = styled.p`
 export const CardBody = styled.div`
   padding-right: 32px;
   padding-left: 32px;
-  
 `;
 
 // export const CardFieldset = styled.fieldset`
@@ -89,26 +88,24 @@ export const CardButton = styled.button`
   }
 `;
 
-export const Card = () => {
+export const Card = (props) => {
+  const { title, description, price, image } = props;
+
   return (
-    <div className="">
+    <div className="" style={{ height: "90vh" }}>
       <CardWrapper>
         <CardHeader>
           <CardImage src={Honey} />
-          <CardHeading>Honey Jar</CardHeading>
+          <CardHeading>{title}</CardHeading>
         </CardHeader>
 
         <CardBody>
           <ProductDetails>
             <ProductName>Honey Jar</ProductName>
-            <ProductDesc>Honey and hive</ProductDesc>
-            <ProductPrice>20$</ProductPrice>
+            <ProductDesc>{description}</ProductDesc>
+            <ProductPrice>{price}$</ProductPrice>
           </ProductDetails>
           <CardButton type="button">Add to cart</CardButton>
-
-          {/* <CardFieldset>
-            <CardButton type="button">Add to cart</CardButton>
-          </CardFieldset> */}
         </CardBody>
       </CardWrapper>
     </div>
