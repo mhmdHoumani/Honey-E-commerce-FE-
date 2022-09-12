@@ -1,6 +1,11 @@
 import React from "react";
 import styled, { css } from "styled-components";
 import Honey from "../Assets/Images/Honey.png";
+import { useEffect, useState } from "react";
+import { addProduct } from "../redux/cartRedux";
+import { useDispatch } from "react-redux";
+import { Add, Remove } from "@material-ui/icons";
+
 
 export const CardWrapper = styled.div`
   overflow: hidden;
@@ -90,7 +95,25 @@ export const CardButton = styled.button`
 
 export const Card = (props) => {
   const { title, description, price, image } = props;
+  // const id = location.pathname.split("/")[2];
+  const [product, setProduct] = useState({});
+  const [quantity, setQuantity] = useState(1);
+  // const [size, setSize] = useState("");
+  const dispatch = useDispatch();
 
+  const handleQuantity = (type) => {
+    if (type === "dec") {
+      quantity > 1 && setQuantity(quantity - 1);
+    } else {
+      setQuantity(quantity + 1);
+    }
+  };
+
+  const handleClick = () => {
+    dispatch(
+      addProduct({ ...product, quantity})
+    );
+  };
   return (
     <div className="" style={{ height: "90vh" }}>
       <CardWrapper>
@@ -105,7 +128,7 @@ export const Card = (props) => {
             <ProductDesc>{description}</ProductDesc>
             <ProductPrice>{price}$</ProductPrice>
           </ProductDetails>
-          <CardButton type="button">Add to cart</CardButton>
+          <CardButton type="button" onClick={handleClick} >Add to cart</CardButton>
         </CardBody>
       </CardWrapper>
     </div>
