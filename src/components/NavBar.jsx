@@ -83,6 +83,7 @@ export default function Navbar() {
     <Container>
       <Wrapper>
         <Left>
+          
           <Language>EN</Language>
           <SearchContainer>
             <Input placeholder="Search" />
