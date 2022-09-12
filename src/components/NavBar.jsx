@@ -15,7 +15,7 @@ const Container = styled.div`
   z-index: 1;
   width: 100%;
   color: white;
-  background-color:rgba(0,0,0,0.7);
+  background-color:rgba(0,0,0,0.9);
   ${mobile({ height: "50px" })};
 
 
