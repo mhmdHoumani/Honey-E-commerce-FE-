@@ -131,6 +131,16 @@ h1 {
   animation: load 3.5s ease-in-out 1;
   border: 0 !important;
 }
+.notloggedBtn{
+  font-weight: bold;
+}
+
+.notloggedBtn:hover{
+  cursor: pointer;
+  color: var(--yellow);
+
+  text-shadow: 1px 1px 1px #00000055;
+}
 .MuiFormLabel-root.Mui-focused {
   color: var(--black) !important;
 }
@@ -140,8 +150,7 @@ h1 {
 
 .notMemberBtn:hover {
   border: 0 !important;
-  border-left: var(--yellow) 1px solid !important;
-  border-right: var(--yellow) 1px solid !important;
+  
   background-color: transparent !important;
 }
 @keyframes fadeIn {

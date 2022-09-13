@@ -27,7 +27,7 @@ const SignUp = () => {
     setPasswordError("");
 
     try {
-      let item = {name ,email, password };
+      let item = { name, email, password };
       let result = await fetch("http://localhost:5000/user/", {
         method: "POST",
         headers: {
@@ -40,12 +40,10 @@ const SignUp = () => {
       console.log(result.token);
       if (result.message) {
         setGeneralError(result.message);
-      }
-      else{
+      } else {
         localStorage.setItem("token", JSON.stringify(result.token));
         localStorage.setItem("id", JSON.stringify(result._id));
         return navigate("/");
-
       }
     } catch (err) {
       console.log(err);
@@ -78,7 +76,7 @@ const SignUp = () => {
               {generalError}
             </Alert>
           )}
-          <h2>Please enter your email and password.</h2>
+          <h1>Sign up</h1>
           <TextField
             onChange={(e) => {
               setName(e.target.value);
@@ -91,7 +89,7 @@ const SignUp = () => {
             helperText={emailError}
             required
             variant="outlined"
-            value = {name}
+            value={name}
           />
           <TextField
             onChange={(e) => {
@@ -105,7 +103,7 @@ const SignUp = () => {
             helperText={emailError}
             required
             variant="outlined"
-            value = {email}
+            value={email}
           />
           <TextField
             onChange={(e) => {
@@ -137,14 +135,10 @@ const SignUp = () => {
           >
             Sign Up
           </Button>
-          <Button
-            className="notMemberBtn"
-            href="#text-buttons"
-            onClick={() => navigate("/login")}
-            sx={{ width: "14vw", letterSpacing: "2px", color: "var(--black)" }}
-          >
-            Already a member? Log in.
-          </Button>
+          <div className="notMemberBtn"  onClick={() => navigate("/login")}>
+            Already a member?{" "}
+            <span className="notloggedBtn" onClick={() => navigate("/login")}>Log in</span>.
+          </div>
         </div>
       </Box>
       <div className="footer">Esper Bee Honey ©</div>
