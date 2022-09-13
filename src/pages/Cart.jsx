@@ -1,7 +1,7 @@
 import { Add, Remove } from "@material-ui/icons";
 import { useSelector } from "react-redux";
 import styled from "styled-components";
-// import Announcement from "../components/Announcement";
+ 
 // import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";
 import { mobile } from "../responsive";
@@ -164,9 +164,9 @@ const Cart = () => {
   const [stripeToken, setStripeToken] = useState(null);
   const Navigate = useNavigate();
 
-  const onToken = (token) => {
-    setStripeToken(token);
-  };
+    const onToken = (token) => {
+      setStripeToken(token);
+    };
 
   useEffect(() => {
     const makeRequest = async () => {
@@ -185,7 +185,7 @@ const Cart = () => {
   return (
     <Container>
       <Navbar />
-      {/* <Announcement /> */}
+    
       <Wrapper>
         <Title>YOUR BAG</Title>
         <Top>
@@ -225,6 +225,7 @@ const Cart = () => {
                     $ {product.price * product.quantity}
                   </ProductPrice>
                 </PriceDetail>
+             
               </Product>
             ))}
             <Hr />

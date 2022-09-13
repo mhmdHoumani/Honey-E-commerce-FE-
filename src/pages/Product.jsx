@@ -18,13 +18,13 @@ export const Product = () => {
 
   const getData = async () => {
     const response = await fetch(
-      `http://127.0.0.1:5000/products`
+      `http://localhost:5000/products`
     )
     let data = await response.json();
 
     setData(data);
   
-    console.log(data)
+    // console.log(data)
   }
 
   useEffect(() => {
