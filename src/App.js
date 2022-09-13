@@ -27,8 +27,11 @@ function App() {
       {/* <AboutUs/> */}
 
       <BrowserRouter>
-        <Announcement />
-        {/* {!login && <Navbar />} */}
+ 
+      
+        {/* <Announcement /> */}
+        {!login && <Navbar />}
+ 
 
         <Routes>
           <Route
