@@ -1,10 +1,9 @@
 import { ArrowLeftOutlined, ArrowRightOutlined } from "@material-ui/icons";
 import { useState } from "react";
 import styled from "styled-components";
-import { sliderItems } from "../data";
+import { sliderItems } from "./data";
 import { mobile, tablet } from "../responsive";
 
-import batata from "../Assets/Images/20220628_132624.jpg";
 
 const Container = styled.div`
   width: 100%;
@@ -52,7 +51,8 @@ const Slide = styled.div`
 `;
 const ImageContainer = styled.div`
   flex: 1;
-  height: 100%;
+  // height: 100%;
+  objectFit: cover,
   ${tablet({
     height: "auto",
 
@@ -80,7 +80,7 @@ const Desc = styled.p`
   letter-spacing: 3px;
 `;
 const Button = styled.button`
-  width: 30%;
+  width: 35%;
 
   padding: 15px;
   font-size: 20px;
@@ -118,7 +118,7 @@ export const Slider = () => {
         {sliderItems.map((item) => (
           <Slide bg={item.bg} key={item.id}>
             <ImageContainer>
-              <Image src={batata} />
+              <Image src={require('../Assets/Images/'+item.img+'.jpg')} />
             </ImageContainer>
 
             <InfoContainer>
