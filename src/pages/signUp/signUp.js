@@ -1,42 +1,34 @@
-import "./login.css";
-import React, { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
-import "./login.css";
+import React, { useState } from "react";
+import "./signUp.css";
 import { Button, Box, TextField, Alert } from "@mui/material";
+import { useNavigate } from "react-router-dom";
 
-const Login = (props) => {
+const SignUp = () => {
   const [password, setPassword] = useState("");
   const [email, setEmail] = useState("");
+  const [name, setName] = useState("");
   const [generalError, setGeneralError] = useState("");
   const [emailError, setEmailError] = useState("");
   const [passwordError, setPasswordError] = useState("");
   const navigate = useNavigate();
 
+  //   useEffect(() => {
+  //     const token = localStorage.getItem("token");
+  //     // I need to validate if the token is a valid
+  //     if (token) {
+  //       useNavigate("/");
+  //     }
+  //   }, []);
 
-    useEffect(() => {
-      const token = localStorage.getItem("token");
-
-      // I need to validate if the token is a valid
-      if (token) {
-        navigate("/");
-      }
-      else{
-        // props.setLogin(true)
-        navigate("/login");
-
-      }
-    }, []);
-
-  useEffect(() => {
-  }, [])
-  
   async function login(e) {
     e.preventDefault();
     setGeneralError("");
+    setEmailError("");
+    setPasswordError("");
 
     try {
-      let item = { email, password };
-      let result = await fetch("http://localhost:5000/user/login", {
+      let item = { name, email, password };
+      let result = await fetch("http://localhost:5000/user/", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -45,23 +37,18 @@ const Login = (props) => {
       });
       localStorage.setItem("token", JSON.stringify(result.token));
       result = await result.json();
-      console.log(result);
+      console.log(result.token);
       if (result.message) {
         setGeneralError(result.message);
-      }
-      else{
+      } else {
         localStorage.setItem("token", JSON.stringify(result.token));
         localStorage.setItem("id", JSON.stringify(result._id));
-       
-        props.setLogin(false);
-        navigate("/");
-
+        return navigate("/");
       }
     } catch (err) {
       console.log(err);
     }
   }
-
   return (
     <div className="loginContainer">
       <Box
@@ -75,33 +62,48 @@ const Login = (props) => {
         <div className="loginContainerform">
           {generalError && (
             <Alert
+              className="err"
               severity="error"
               sx={{
                 height: "40px",
                 transform: "scale(1.3)",
-                width: "10rem",
+                width: "12rem",
                 position: "absolute",
-                top: "20%",
+                top: "3%",
+                boxShadow: "4",
               }}
             >
               {generalError}
             </Alert>
           )}
-
-          <h1>LOGO</h1>
-          <h2>Please enter your email and password.</h2>
+          <h1>Sign up</h1>
+          <TextField
+            onChange={(e) => {
+              setName(e.target.value);
+              setGeneralError("");
+            }}
+            className="input1"
+            id="outlined-basic"
+            label="Name"
+            error={generalError}
+            helperText={emailError}
+            required
+            variant="outlined"
+            value={name}
+          />
           <TextField
             onChange={(e) => {
               setEmail(e.target.value);
               setGeneralError("");
             }}
-            className="input"
+            className="input2"
             id="outlined-basic"
             label="Email"
             error={generalError}
             helperText={emailError}
             required
             variant="outlined"
+            value={email}
           />
           <TextField
             onChange={(e) => {
@@ -109,7 +111,7 @@ const Login = (props) => {
               setGeneralError("");
             }}
             value={password}
-            className="input"
+            className="input3"
             id="outlined-basic"
             label="Password"
             variant="outlined"
@@ -131,15 +133,12 @@ const Login = (props) => {
               backgroundColor: "var(--black)",
             }}
           >
-            Submit
+            Sign Up
           </Button>
-          <Button
-            className="notMemberBtn"
-            href="#text-buttons"
-            sx={{ width: "12vw", letterSpacing: "2px", color: "var(--black)" }}
-          >
-            Not a member? Sign up.
-          </Button>
+          <div className="notMemberBtn"  onClick={() => navigate("/login")}>
+            Already a member?{" "}
+            <span className="notloggedBtn" onClick={() => navigate("/login")}>Log in</span>.
+          </div>
         </div>
       </Box>
       <div className="footer">Esper Bee Honey ©</div>
@@ -147,4 +146,4 @@ const Login = (props) => {
   );
 };
 
-export default Login;
+export default SignUp;

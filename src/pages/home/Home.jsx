@@ -6,6 +6,8 @@ import CategoryCard from "../../components/CategoryCard";
 import styled from "styled-components";
 import { mobile, tablet } from "../../responsive";
 
+import InfoCard from "../../components/InfoCard";
+
 const CategoryContainer = styled.div`
   display: flex;
   justify-content: space-evenly;
@@ -18,8 +20,10 @@ function Home() {
       {/* <Announcement /> */}
       <Navbar />
       <Slider />
+      <InfoCard/>
       <CategoryContainer>
         <CategoryCard />
+        {/* <InfoCards/> */}
       </CategoryContainer>
     </div>
   );

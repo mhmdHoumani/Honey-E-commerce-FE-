@@ -1,10 +1,9 @@
 import { ArrowLeftOutlined, ArrowRightOutlined } from "@material-ui/icons";
 import { useState } from "react";
 import styled from "styled-components";
-import { sliderItems } from "../data";
-// import {mobile} from "../responsive"
+import { sliderItems } from "./data";
+import { mobile, tablet } from "../responsive";
 
-import batata from "../Assets/Images/20220628_132624.jpg";
 
 const Container = styled.div`
   width: 100%;
@@ -13,6 +12,7 @@ const Container = styled.div`
   position: relative;
   overflow: hidden;
   color: white;
+  ${mobile({ display: "none" })};
 `;
 
 const Arrow = styled.div`
@@ -32,7 +32,7 @@ const Arrow = styled.div`
   cursor: pointer;
   opacity: 0.5;
   z-index: 2;
-  color:#F4900A;
+  color: #f4900a;
 `;
 
 const Wrapper = styled.div`
@@ -51,7 +51,13 @@ const Slide = styled.div`
 `;
 const ImageContainer = styled.div`
   flex: 1;
-  height: 100%;
+  // height: 100%;
+  objectFit: cover,
+  ${tablet({
+    height: "auto",
+
+    objectFit: "cover",
+  })}
 `;
 
 const Image = styled.img`
@@ -74,7 +80,7 @@ const Desc = styled.p`
   letter-spacing: 3px;
 `;
 const Button = styled.button`
-width:30%;
+  width: 35%;
 
   padding: 15px;
   font-size: 20px;
@@ -82,12 +88,12 @@ width:30%;
   cursor: pointer;
   color: white;
   border: none;
-  transition:1s ease;
+  transition: 1s ease;
 
   &:hover {
     background-color: white;
     transform: scale(1.1);
-    transition:1s ease;
+    transition: 1s ease;
     color: #f4900a;
   }
 `;
@@ -106,13 +112,13 @@ export const Slider = () => {
   return (
     <Container>
       <Arrow direction="left" onClick={() => handleClick("left")}>
-        <ArrowLeftOutlined style={{color:"#F4900A"}} />
+        <ArrowLeftOutlined style={{ color: "#F4900A" }} />
       </Arrow>
       <Wrapper slideIndex={slideIndex}>
         {sliderItems.map((item) => (
           <Slide bg={item.bg} key={item.id}>
             <ImageContainer>
-              <Image src={batata} />
+              <Image src={require('../Assets/Images/'+item.img+'.jpg')} />
             </ImageContainer>
 
             <InfoContainer>
@@ -124,7 +130,7 @@ export const Slider = () => {
         ))}
       </Wrapper>
       <Arrow direction="right" onClick={() => handleClick("right")}>
-        <ArrowRightOutlined style={{color:"#F4900A"}} />
+        <ArrowRightOutlined style={{ color: "#F4900A" }} />
       </Arrow>
     </Container>
   );
