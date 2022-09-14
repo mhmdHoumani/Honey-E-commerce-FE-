@@ -27,7 +27,7 @@ export const CardHeader = styled.header`
 `;
 
 export const CardHeading = styled.h1`
-  font-size: 24px;
+  margin-top:25px;
   font-weight: bold;
   text-align: center;
 `;

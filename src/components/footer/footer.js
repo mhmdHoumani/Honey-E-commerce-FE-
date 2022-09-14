@@ -20,11 +20,11 @@ const Footer = () => {
             <NavLink to="/aboutUs">ABOUT US</NavLink>
           </div>
           <div className="socialMedia_div">
-            <a className="" href="https://www.facebook.com/">
+            <a className="" href="https://m.facebook.com/profile.php?id=100064305061300&_rdr">
               {" "}
               <RiFacebookFill />
             </a>
-            <a className="" href="https://www.instagram.com/">
+            <a className="" href="https://instagram.com/esperbeehoney?igshid=MmIxOGMzMTU=">
               {" "}
               <AiOutlineInstagram />
             </a>
