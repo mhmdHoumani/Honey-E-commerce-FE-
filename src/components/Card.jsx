@@ -1,6 +1,8 @@
 import React from "react";
 import styled, { css } from "styled-components";
 import Honey from "../Assets/Images/Honey.png";
+// import { Link } from "react-router-dom";
+
 
 export const CardWrapper = styled.div`
   overflow: hidden;
@@ -89,7 +91,7 @@ export const CardButton = styled.button`
 `;
 
 export const Card = (props) => {
-  const { title, description, price, image } = props;
+  const { title, description, price, image , _id} = props;
 
   return (
     <div className="" style={{ height: "90vh" }}>
@@ -106,6 +108,9 @@ export const Card = (props) => {
             <ProductPrice>{price}$</ProductPrice>
           </ProductDetails>
           <CardButton type="button">Add to cart</CardButton>
+          {/* <Link to={`http://127.0.0.1:5000/products/find/${_id}`}>
+          <button>view more</button>
+        </Link> */}
         </CardBody>
       </CardWrapper>
     </div>

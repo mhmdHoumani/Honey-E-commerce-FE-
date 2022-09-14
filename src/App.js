@@ -9,6 +9,9 @@ import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { Announcement } from "./components/Announcement";
 import { Product } from "./pages/Product";
 import { useState } from "react";
+import { SingleProduct } from "./pages/SingleProduct/SingleProduct";
+import { Single } from "./pages/SingleProduct/single";
+import SingleProd from "./components/SingleProduct/SingleProd";
 
 function App() {
   // const [login, setLogin] = useState(false);
@@ -17,7 +20,6 @@ function App() {
       {/* <AboutUs/> */}
 
       <BrowserRouter>
-        <Announcement />
         {/* {!login && <Navbar />} */}
 
         <Routes>
@@ -31,10 +33,10 @@ function App() {
             }
           />
           <Route
-            
             path="/"
             element={
               <>
+                <Announcement />
                 <Navbar />
                 <Home />
                 <Footer />
@@ -43,7 +45,6 @@ function App() {
           />
           <Route path="*" element={<Navigate to="/" replace />} />
           <Route
-            
             path="/product"
             element={
               <>
@@ -53,8 +54,7 @@ function App() {
               </>
             }
           />
-            <Route
-            
+          <Route
             path="/aboutUs"
             element={
               <>
@@ -64,8 +64,7 @@ function App() {
               </>
             }
           />
-             <Route
-            
+          <Route
             path="/signup"
             element={
               <>
@@ -73,6 +72,25 @@ function App() {
               </>
             }
           />
+          <Route
+            path="/singlePro"
+            element={
+              <>
+                <SingleProduct />
+              </>
+            }
+          />
+             <Route
+            path="/single"
+            element={
+              <>
+              
+              {/* <SingleProd/> */}
+                <Single />
+              </>
+            }
+          />
+
           {/* <Route path="/login" element={<Login  setLogin={setLogin}/> } /> */}
           {/* <Route path="*" element={<Navigate to="/" replace />} />
 
