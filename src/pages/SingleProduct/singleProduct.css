@@ -1,0 +1,47 @@
+.main_container_singleProduct{
+    display: flex;
+    /* background-color: aqua; */
+    margin: 8rem 2rem;  
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+.singleProd_title{
+    /* font-family: 'Signika', sans-serif; */
+    font-size: 40px;
+    font-weight: 600;
+    letter-spacing: 0;
+    text-transform: none;
+    line-height: 1.5rem;
+    margin-top: 30px;
+    margin-bottom: 15px;
+    font-family: 'Signika', sans-serif;
+
+}
+.image_conatiner_s{
+    
+}
+.image_conatiner_s img {
+    width: fit-content;
+    max-width: 30vw;
+    transform: scale(0.88);
+    border-radius: 5px;
+    object-fit: contain;
+  }
+
+.desc_container_s{
+    min-width: 50vw;
+    /* background-color: red; */
+    margin:2rem;
+    padding-left: 1rem;
+    display: flex;
+    flex-direction: column;
+}
+.desc_text_content{
+    display: flex;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    margin: 0 0 15px;
+    float: left;
+    width: 100%;
+    line-height: 30px;
+}

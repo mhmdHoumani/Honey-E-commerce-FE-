@@ -7,7 +7,6 @@ import { mobile, tablet } from "../responsive";
 const Container = styled.div`
   display: flex;
   flex-wrap: wrap;
-
   justify-content: space-evenly;
   ${mobile({ flexDirection: "column" })}
   ${tablet({})}
@@ -38,7 +37,7 @@ export const Product = () => {
     <>
       <Container>
       {data.map((e) => (
-        <Card title={e.title} description={e.desc} price={e.price} />
+        <Card title={e.title} description={e.desc} price={e.price} _id={e._id} image={e.img}/>
       ))}
        
       </Container>

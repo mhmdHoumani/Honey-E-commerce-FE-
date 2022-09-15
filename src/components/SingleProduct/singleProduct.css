@@ -1,0 +1,18 @@
+.MuiFormGroup-root.css-dmmspl-MuiFormGroup-root{
+ display: flex; 
+ flex-direction: row;
+}    
+#demo-radio-buttons-group-label{
+margin-top: 1rem;
+font-weight: bold;
+}
+label#demo-radio-buttons-group-label{
+    color: black;
+}
+/* input.PrivateSwitchBase-input.css-1m9pwf3{
+color: yellow;
+} */
+
+.css-vqmohf-MuiButtonBase-root-MuiRadio-root.Mui-checked{
+    color: black;
+}

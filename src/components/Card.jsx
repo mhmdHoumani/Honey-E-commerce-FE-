@@ -1,6 +1,8 @@
 import React from "react";
 import styled, { css } from "styled-components";
 import Honey from "../Assets/Images/Honey.png";
+import { Link,useNavigate } from "react-router-dom";
+
 
 export const CardWrapper = styled.div`
   overflow: hidden;
@@ -59,6 +61,10 @@ export const CardBody = styled.div`
   padding-right: 32px;
   padding-left: 32px;
 `;
+export const ButtonWrapper = styled.div`
+display: flex;
+justify-content: space-around;
+`;
 
 // export const CardFieldset = styled.fieldset`
 // //   position: relative;
@@ -69,7 +75,7 @@ export const CardBody = styled.div`
 
 export const CardButton = styled.button`
   display: block;
-  width: 100%;
+  width: 45%;
   padding: 12px 0;
   font-family: inherit;
   font-size: 14px;
@@ -89,7 +95,8 @@ export const CardButton = styled.button`
 `;
 
 export const Card = (props) => {
-  const { title, description, price, image } = props;
+  const { title, description, price, image , _id} = props;
+  const navigate=useNavigate()
 
   return (
     <div className="" style={{ height: "90vh" }}>
@@ -105,7 +112,14 @@ export const Card = (props) => {
             <ProductDesc>{description}</ProductDesc>
             <ProductPrice>{price}$</ProductPrice>
           </ProductDetails>
+          <ButtonWrapper>
           <CardButton type="button">Add to cart</CardButton>
+          <CardButton type="button" 
+          onClick={()=>navigate('/product-details', { state: { title, description, price, image , _id}} )}
+          >show product</CardButton>
+          </ButtonWrapper>
+     
+         
         </CardBody>
       </CardWrapper>
     </div>
