@@ -34,7 +34,9 @@ const SingleProd = (props) => {
   };
 
   const addToCart = () => {
-    let products = localStorage.getItem("products");
+    let products = localStorage.getItem("products"); //array
+    //create a new object with key and value (id, price, quantity)
+    // adding the created object to localstorage (by using setItem)
     let cartNumbers = localStorage.getItem("cartNumbers");
     localStorage.setItem("cartNumbers", parseInt(cartNumbers) + quantity);
     let qtty = products.get(_id);

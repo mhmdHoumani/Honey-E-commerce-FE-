@@ -13,7 +13,8 @@ import { useState } from "react";
 import { Single } from "./pages/SingleProduct/single";
 import SingleProd from "./components/SingleProduct/SingleProd";
 
-import Cart from "./pages/cart/Cart";
+import Cart from "./components1/Cart";
+
 export const cardNumContaxt = React.createContext()
 
 function App() {
