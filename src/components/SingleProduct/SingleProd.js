@@ -1,4 +1,5 @@
-import "./singleProduct.css"
+import * as React from "react";
+import "./singleProduct.css";
 import image1 from "../../Assets/Images/honeyDrops.jpg";
 import styled from "styled-components";
 import { useEffect, useRef, useState } from "react";
@@ -14,15 +15,15 @@ import {
 import minus from "../../Assets/Images/icon-minus.svg";
 import plus from "../../Assets/Images/icon-plus.svg";
 import cart from "../../Assets/Images/icon-cart-white.svg";
+import { cardNumContaxt } from "../../App";
 
 const SingleProd = (props) => {
-  const { title, description, price, image , id} = props;
+  const { setCardNum, cardNum } = React.useContext(cardNumContaxt);
+  const { title, description, price, image, _id } = props;
 
   const [quantity, setQuantity] = useState(0);
   const [preview, setPreview] = useState(0);
   const ref = useRef(null);
-
-
 
   const quantityHandler = (increment) => {
     if (increment) {
@@ -32,27 +33,24 @@ const SingleProd = (props) => {
     }
   };
 
+  const addToCart = () => {
+    let products = localStorage.getItem("products");
+    let cartNumbers = localStorage.getItem("cartNumbers");
+    localStorage.setItem("cartNumbers", parseInt(cartNumbers) + quantity);
+    let qtty = products.get(_id);
+    products.set(_id, qtty + quantity);
+  };
+
   return (
     <>
       <Body>
         <Images>
           <div className="displayed">
             <div className="desktop-carousel">
-              <img
-                src={image1}
-                alt="current image"
-                className="current-image"
-              />
+              <img src={image1} alt="current image" className="current-image" />
             </div>
             <div className="mobile-carousel">
-            <img
-                  src={image1}
-                  alt="current image"
-                 
-                  className="current-image"
-                  
-                />
-           
+              <img src={image1} alt="current image" className="current-image" />
             </div>
           </div>
         </Images>
@@ -66,15 +64,13 @@ const SingleProd = (props) => {
             <Price>
               <div className="total-price">
                 <div className="discouted-price">
-                  <p>
-                  {price}$
-                  </p>
+                  <p>{price}$</p>
                 </div>
               </div>
               {/* <div className="original-weight"> </div> */}
-              
+
               <radioWrapper>
-                <FormControl >
+                <FormControl>
                   <FormLabel id="demo-radio-buttons-group-label">
                     Weight
                   </FormLabel>
@@ -119,7 +115,7 @@ const SingleProd = (props) => {
               </div>
             </div>
             <div className="add-to-cart">
-              <button>
+              <button onClick={addToCart}>
                 <img src={cart} alt={cart} /> Add to cart
               </button>
             </div>
@@ -281,8 +277,6 @@ const Price = styled.div`
     // color: hsl(220, 14%, 75%);
   }
 
-
-
   @media (max-width: 768px) {
     display: flex;
     align-items: center;
@@ -310,7 +304,7 @@ const Buttons = styled.div`
     user-select: none;
     margin-right: 20px;
 
-    .quantity img{
+    .quantity img {
       color: black;
     }
     .current-quantity {
@@ -394,7 +388,6 @@ const Buttons = styled.div`
   }
 `;
 
-
 const Controls = styled.div`
   position: absolute;
   top: 50%;
@@ -423,6 +416,5 @@ const Controls = styled.div`
 const radioWrapper = styled.div`
   display: flex;
   background-color: red;
-
 `;
 export default SingleProd;

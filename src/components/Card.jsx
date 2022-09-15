@@ -1,21 +1,19 @@
-import React from "react";
+import * as React from "react";
 import styled, { css } from "styled-components";
 import Honey from "../Assets/Images/Honey.png";
-import { Link,useNavigate } from "react-router-dom";
-
+import { Link, useNavigate } from "react-router-dom";
+import {cardNumContaxt} from '../App'
 
 export const CardWrapper = styled.div`
   overflow: hidden;
   padding: 0 0 32px;
   // margin: 48px auto 0;
   margin-top: 17%;
-// margin-bottom: 2%;
+  // margin-bottom: 2%;
   width: 384px;
   font-family: Quicksand, arial, sans-serif;
   box-shadow: 0 0 10px 0 #bbbbbb;
   border-radius: 7px;
- 
-
 `;
 
 export const CardHeader = styled.header`
@@ -62,8 +60,8 @@ export const CardBody = styled.div`
   padding-left: 32px;
 `;
 export const ButtonWrapper = styled.div`
-display: flex;
-justify-content: space-around;
+  display: flex;
+  justify-content: space-around;
 `;
 
 // export const CardFieldset = styled.fieldset`
@@ -95,12 +93,19 @@ export const CardButton = styled.button`
 `;
 
 export const Card = (props) => {
-  const { title, description, price, image , _id} = props;
-  const navigate=useNavigate()
+  const {setCardNum,cardNum} = React.useContext(cardNumContaxt)
+
+  const { title, description, price, image, _id } = props;
+
+  const navigate = useNavigate();
+  const addTocard = () => {
+    setCardNum(cardNum + 1);
+    console.log(cardNum)
+  };
 
   return (
     <div className="" style={{ height: "90vh" }}>
-      <CardWrapper>
+      <CardWrapper >
         <CardHeader>
           <CardImage src={Honey} />
           <CardHeading>{title}</CardHeading>
@@ -113,13 +118,20 @@ export const Card = (props) => {
             <ProductPrice>{price}$</ProductPrice>
           </ProductDetails>
           <ButtonWrapper>
-          <CardButton type="button">Add to cart</CardButton>
-          <CardButton type="button" 
-          onClick={()=>navigate('/product-details', { state: { title, description, price, image , _id}} )}
-          >show product</CardButton>
+            <CardButton onClick={addTocard} type="button">
+              Add to cart
+            </CardButton>
+            <CardButton
+              type="button"
+              onClick={() =>
+                navigate("/product-details", {
+                  state: { title, description, price, image, _id },
+                })
+              }
+            >
+              show product
+            </CardButton>
           </ButtonWrapper>
-     
-         
         </CardBody>
       </CardWrapper>
     </div>

@@ -1,10 +1,12 @@
 import { Badge } from "@material-ui/core";
+import { cardNumContaxt } from "../App";
+
 import {
   PermIdentityOutlined,
   Search,
   ShoppingCartOutlined,
 } from "@material-ui/icons";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import { NavLink } from "react-router-dom";
 import { mobile } from "../responsive";
@@ -15,11 +17,8 @@ const Container = styled.div`
   z-index: 1;
   width: 100%;
   color: white;
-  background-color:rgba(0,0,0,0.9);
+  background-color: rgba(0, 0, 0, 0.9);
   ${mobile({ height: "50px" })};
-
-
-
 `;
 const Wrapper = styled.div`
   padding: 10px 20px;
@@ -28,7 +27,6 @@ const Wrapper = styled.div`
   justify-content: space-between;
   position: relative;
   ${mobile({ padding: "10px 0px" })};
-
 `;
 
 const Left = styled.div`
@@ -41,7 +39,6 @@ const Language = styled.span`
   font-size: 14px;
   cursor: pointer;
   ${mobile({ display: "none" })};
-
 `;
 
 const SearchContainer = styled.div`
@@ -51,7 +48,7 @@ const SearchContainer = styled.div`
   margin-left: 25px;
   padding: 5px;
   background-color: transparent;
-  ${mobile ({marginLeft:"0"})}
+  ${mobile({ marginLeft: "0" })}
 `;
 
 const Input = styled.input`
@@ -59,7 +56,6 @@ const Input = styled.input`
   background-color: transparent;
   color: white;
   ${mobile({ width: "50px" })};
-
 `;
 const Center = styled.div`
   flex: 1;
@@ -71,7 +67,6 @@ const Logo = styled.h1`
   justify-content: center;
   display: flex;
   ${mobile({ fontSize: "10px" })};
-
 `;
 const Right = styled.div`
   flex: 1;
@@ -79,7 +74,6 @@ const Right = styled.div`
   align-items: center;
   justify-content: flex-end;
   ${mobile({ flex: 2, justifyContent: "center" })};
-
 `;
 
 const MenuItem = styled.div`
@@ -95,17 +89,21 @@ const MenuItem = styled.div`
   }
 
   &:hover {
-    color:#FBC41F;
+    color: #fbc41f;
     // background-color:#FBC41F;
-    border:1px solid #FBC41F;
-    border-radius:5px;
+    border: 1px solid #fbc41f;
+    border-radius: 5px;
   }
-  ${mobile({ fontSize: "8px", marginLeft: "2px"})};
-
+  ${mobile({ fontSize: "8px", marginLeft: "2px" })};
 `;
 
-
 export default function Navbar() {
+  // const { cardNum } = React.useContext(cardNumContaxt);
+  const [cartNumbers, setCardNum] = useState(
+    localStorage.getItem("cartNumbers")
+  );
+  useEffect(() => {}, [cartNumbers]);
+
   return (
     <Container>
       <Wrapper>
@@ -150,8 +148,11 @@ export default function Navbar() {
           </MenuItem>
 
           <MenuItem>
-            <Badge badgeContent={4} color="primary">
-              <ShoppingCartOutlined  />
+            <Badge
+              badgeContent={localStorage.getItem("cartNumbers")}
+              color="primary"
+            >
+              <ShoppingCartOutlined />
             </Badge>
           </MenuItem>
         </Right>

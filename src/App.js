@@ -1,5 +1,6 @@
 import "./App.css";
 import Login from "./pages/login/login";
+import * as React from "react";
 import Navbar from "./components/NavBar";
 import Home from "./pages/home/Home";
 import AboutUs from "./pages/aboutUs/aboutUs";
@@ -12,8 +13,14 @@ import { useState } from "react";
 import { Single } from "./pages/SingleProduct/single";
 import SingleProd from "./components/SingleProduct/SingleProd";
 
+import Cart from "./pages/cart/Cart";
+export const cardNumContaxt = React.createContext()
+
 function App() {
+  const [cardNum, setCardNum] = useState(0);
   return (
+    <cardNumContaxt.Provider value={{cardNum, setCardNum}}>
+
     <div className="App">
       <BrowserRouter>
 
@@ -82,10 +89,23 @@ function App() {
             }
           />
           
+
+
+
+          <Route
+            path="/cart"
+            element={
+              <>
+                <Cart />
+              </>
+            }
+          />
         </Routes>
 
       </BrowserRouter>
     </div>
+    </cardNumContaxt.Provider>
+
   );
 }
 export default App;
