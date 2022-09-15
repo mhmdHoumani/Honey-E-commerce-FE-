@@ -91,11 +91,19 @@ const MenuItem = styled.div`
   list-style-type: none;
   && a::after {
     text-decoration: none;
-    color: white;
+    // color: white;
+  }
+
+  &:hover {
+    color:#FBC41F;
+    // background-color:#FBC41F;
+    border:1px solid #FBC41F;
+    border-radius:5px;
   }
   ${mobile({ fontSize: "8px", marginLeft: "2px"})};
 
 `;
+
 
 export default function Navbar() {
   return (
