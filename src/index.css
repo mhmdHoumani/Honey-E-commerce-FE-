@@ -34,9 +34,34 @@
 
 
 .show {
-  display: block;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.9);
+}
+
+.show  a {
+  color:white;
+  text-decoration: none;
+}
+
+.show ul {
+  list-style: none;
+
+}
+
+.show li{
+  margin-left: 20px;
+}
+
+.show li :hover{
+  border: 1px solid #ffbf00;
+  border-radius: 5px;
+  
 }
 
 .dontshow {
   display: none;
 }
+

@@ -8,7 +8,7 @@ const CategoryContainer = styled.div`
   display: flex;
   flex-direction:row;
   justify-content: space-evenly;
-  ${mobile({ flexDirection: "column" })}
+  ${mobile({ flexDirection: "column" , fontSize:"smaller" })}
 `;
 
 export const CardWrapper = styled.div`

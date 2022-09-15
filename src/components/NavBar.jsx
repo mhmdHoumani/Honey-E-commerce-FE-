@@ -14,11 +14,13 @@ import { mobile } from "../responsive";
 import { tablet } from "../responsive";
 const Container = styled.div`
   height: auto;
-  position: absolute;
-  z-index: 1;
+  position: relative;
+  z-index: 2;
   width: 100%;
   color: white;
   background-color: rgba(0, 0, 0, 0.9);
+  
+
 `;
 const Wrapper = styled.div`
   padding: 10px 20px;
@@ -49,6 +51,8 @@ const SearchContainer = styled.div`
   padding: 5px;
   background-color: transparent;
   ${mobile({ marginLeft: "0" })}
+  ${mobile({ display: "none" })};
+
 `;
 
 const Input = styled.input`
@@ -66,7 +70,7 @@ const Logo = styled.h1`
   font-size: 20px;
   justify-content: center;
   display: flex;
-  ${mobile({ fontSize: "10px" })};
+  ${mobile({ fontSize: "10px" ,postion:"absolute", paddingLeft:"50px"})};
 `;
 const Right = styled.div`
   flex: 1;
@@ -100,6 +104,8 @@ const MenuItem = styled.div`
 
 const BurgerMenu = styled.div`
   display: none;
+  position:absolute;
+  top:25%;
   ${mobile({ display: "block" })}
 `;
 
