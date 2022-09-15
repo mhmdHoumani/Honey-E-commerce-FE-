@@ -1,7 +1,7 @@
 import React from "react";
 import styled, { css } from "styled-components";
 import Honey from "../Assets/Images/Honey.png";
-// import { Link } from "react-router-dom";
+import { Link,useNavigate } from "react-router-dom";
 
 
 export const CardWrapper = styled.div`
@@ -92,6 +92,7 @@ export const CardButton = styled.button`
 
 export const Card = (props) => {
   const { title, description, price, image , _id} = props;
+  const navigate=useNavigate()
 
   return (
     <div className="" style={{ height: "90vh" }}>
@@ -108,6 +109,9 @@ export const Card = (props) => {
             <ProductPrice>{price}$</ProductPrice>
           </ProductDetails>
           <CardButton type="button">Add to cart</CardButton>
+          <CardButton type="button" 
+          onClick={()=>navigate('/product-details', { state: { title, description, price, image , _id}} )}
+          >show product</CardButton>
           {/* <Link to={`http://127.0.0.1:5000/products/find/${_id}`}>
           <button>view more</button>
         </Link> */}

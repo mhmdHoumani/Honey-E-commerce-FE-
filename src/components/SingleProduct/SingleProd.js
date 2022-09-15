@@ -1,5 +1,5 @@
-import data from "../../Util/Product";
 import "./singleProduct.css"
+import image1 from "../../Assets/Images/honeyDrops.jpg";
 import styled from "styled-components";
 import { useEffect, useRef, useState } from "react";
 import {
@@ -9,21 +9,20 @@ import {
   FormControlLabel,
   Radio,
 } from "@mui/material";
-//Images
 
+//Images
 import minus from "../../Assets/Images/icon-minus.svg";
 import plus from "../../Assets/Images/icon-plus.svg";
 import cart from "../../Assets/Images/icon-cart-white.svg";
 
-const SingleProd = () => {
+const SingleProd = (props) => {
+  const { title, description, price, image , id} = props;
+
   const [quantity, setQuantity] = useState(0);
   const [preview, setPreview] = useState(0);
   const ref = useRef(null);
 
-  //Handlers
-  const discountPrice = (price, percentage) => {
-    return price * (percentage / 100);
-  };
+
 
   const quantityHandler = (increment) => {
     if (increment) {
@@ -40,45 +39,40 @@ const SingleProd = () => {
           <div className="displayed">
             <div className="desktop-carousel">
               <img
-                src={data[0].images[preview]}
-                alt={data[0].images[0]}
+                src={image1}
+                alt="current image"
                 className="current-image"
               />
             </div>
             <div className="mobile-carousel">
-              {data[0].images.map((image, key) => (
-                <img
-                  src={image}
-                  alt={image}
-                  key={key}
+            <img
+                  src={image1}
+                  alt="current image"
+                 
                   className="current-image"
-                  ref={ref}
+                  
                 />
-              ))}
+           
             </div>
           </div>
         </Images>
         <Details>
           <Name>
-            <div className="brand">{data[0].brand}</div>
-            <div className="name">{data[0].name}</div>
+            <div className="brand">Esper Honey Bee</div>
+            <div className="name">{title}</div>
           </Name>
           <ProductDetails>
-            <Description>{data[0].description}</Description>
+            <Description>{description}</Description>
             <Price>
               <div className="total-price">
                 <div className="discouted-price">
                   <p>
-                    ${discountPrice(data[0].price, data[0].discountPercentage)}
-                    .00
+                  {price}$
                   </p>
                 </div>
-                <div className="percentage">
-                  <p>{data[0].discountPercentage}%</p>
-                </div>
               </div>
-              <div className="original-weight"> {data[0].price}Kg</div>
-              {/* <div className="radioWrapper"> */}
+              {/* <div className="original-weight"> </div> */}
+              
               <radioWrapper>
                 <FormControl >
                   <FormLabel id="demo-radio-buttons-group-label">
@@ -287,13 +281,7 @@ const Price = styled.div`
     // color: hsl(220, 14%, 75%);
   }
 
-  .percentage {
-    padding: 3px 7px;
-    font-weight: 600;
-    border-radius: 6px;
-    background-color: hsl(25, 100%, 94%);
-    color: hsl(26, 100%, 55%);
-  }
+
 
   @media (max-width: 768px) {
     display: flex;
@@ -322,6 +310,9 @@ const Buttons = styled.div`
     user-select: none;
     margin-right: 20px;
 
+    .quantity img{
+      color: black;
+    }
     .current-quantity {
       font-weight: 700;
       width: 50px;
@@ -402,9 +393,7 @@ const Buttons = styled.div`
     }
   }
 `;
-//.MuiFormGroup-root.css-dmmspl-MuiFormGroup-root display: flex; */
-    /* flex-direction: row; */
-    /* background-color: red; */
+
 
 const Controls = styled.div`
   position: absolute;

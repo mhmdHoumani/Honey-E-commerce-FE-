@@ -9,7 +9,6 @@ import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { Announcement } from "./components/Announcement";
 import { Product } from "./pages/Product";
 import { useState } from "react";
-import { SingleProduct } from "./pages/SingleProduct/SingleProduct";
 import { Single } from "./pages/SingleProduct/single";
 import SingleProd from "./components/SingleProduct/SingleProd";
 
@@ -72,25 +71,34 @@ function App() {
               </>
             }
           />
-          <Route
+          {/* <Route
             path="/singlePro"
             element={
               <>
                 <SingleProduct />
               </>
             }
-          />
-             <Route
+          /> */}
+             {/* <Route
             path="/single"
             element={
               <>
               
-              {/* <SingleProd/> */}
+              <SingleProd/>
                 <Single />
               </>
             }
+          /> */}
+        <Route
+            path="/product-details"
+            element={
+              
+              
+              
+              <Single />
+              
+            }
           />
-
           {/* <Route path="/login" element={<Login  setLogin={setLogin}/> } /> */}
           {/* <Route path="*" element={<Navigate to="/" replace />} />
 

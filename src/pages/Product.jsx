@@ -37,7 +37,7 @@ export const Product = () => {
     <>
       <Container>
       {data.map((e) => (
-        <Card title={e.title} description={e.desc} price={e.price} />
+        <Card title={e.title} description={e.desc} price={e.price} _id={e._id} image={e.img}/>
       ))}
        
       </Container>
