@@ -11,7 +11,8 @@ import InfoCard from "../../components/InfoCard";
 const CategoryContainer = styled.div`
   display: flex;
   justify-content: space-evenly;
-  ${mobile({ flexDirection: "column" })}
+  width:auto;
+  // ${mobile({ display:"flex", justifyContent:"space-evenly",flexDirection:"column"})}
   ${tablet({})}
 `;
 function Home() {

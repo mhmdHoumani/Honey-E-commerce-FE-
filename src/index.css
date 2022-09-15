@@ -29,3 +29,14 @@
 ::-webkit-scrollbar-thumb:hover {
   background: var(--black);
 }
+
+
+
+
+.show {
+  display: block;
+}
+
+.dontshow {
+  display: none;
+}

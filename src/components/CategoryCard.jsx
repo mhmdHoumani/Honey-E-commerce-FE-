@@ -6,6 +6,7 @@ import { mobile } from "../responsive";
 
 const CategoryContainer = styled.div`
   display: flex;
+  flex-direction:row;
   justify-content: space-evenly;
   ${mobile({ flexDirection: "column" })}
 `;
@@ -13,8 +14,9 @@ const CategoryContainer = styled.div`
 export const CardWrapper = styled.div`
   overflow: hidden;
   padding: 0 0 32px;
-  margin: 48px auto 0;
-  margin-bottom: 2%;
+  // margin: 48px auto 0;
+
+  // margin-bottom: 2%;
   width: 384px;
   font-family: Quicksand, arial, sans-serif;
   box-shadow: 0 0 10px 0 #bbbbbb;
