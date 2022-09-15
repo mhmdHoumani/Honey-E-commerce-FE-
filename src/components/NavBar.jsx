@@ -7,14 +7,19 @@ import {
 import React from "react";
 import styled from "styled-components";
 import { NavLink } from "react-router-dom";
-// import { mobile } from "../responsive";
+import { mobile } from "../responsive";
 
 const Container = styled.div`
-  height: 60px;
+  height: auto;
   position: absolute;
   z-index: 1;
   width: 100%;
   color: white;
+  background-color:rgba(0,0,0,0.9);
+  ${mobile({ height: "50px" })};
+
+
+
 `;
 const Wrapper = styled.div`
   padding: 10px 20px;
@@ -22,6 +27,8 @@ const Wrapper = styled.div`
   align-items: center;
   justify-content: space-between;
   position: relative;
+  ${mobile({ padding: "10px 0px" })};
+
 `;
 
 const Left = styled.div`
@@ -33,6 +40,8 @@ const Left = styled.div`
 const Language = styled.span`
   font-size: 14px;
   cursor: pointer;
+  ${mobile({ display: "none" })};
+
 `;
 
 const SearchContainer = styled.div`
@@ -42,12 +51,15 @@ const SearchContainer = styled.div`
   margin-left: 25px;
   padding: 5px;
   background-color: transparent;
+  ${mobile ({marginLeft:"0"})}
 `;
 
 const Input = styled.input`
   border: none;
   background-color: transparent;
   color: white;
+  ${mobile({ width: "50px" })};
+
 `;
 const Center = styled.div`
   flex: 1;
@@ -58,12 +70,16 @@ const Logo = styled.h1`
   font-size: 20px;
   justify-content: center;
   display: flex;
+  ${mobile({ fontSize: "10px" })};
+
 `;
 const Right = styled.div`
   flex: 1;
   display: flex;
   align-items: center;
   justify-content: flex-end;
+  ${mobile({ flex: 2, justifyContent: "center" })};
+
 `;
 
 const MenuItem = styled.div`
@@ -71,12 +87,23 @@ const MenuItem = styled.div`
   cursor: pointer;
   margin-left: 25px;
   color: white;
-  decoration: none;
+  text-decoration: none;
+  list-style-type: none;
   && a::after {
-    decoration: none;
-    color: white;
+    text-decoration: none;
+    // color: white;
   }
+
+  &:hover {
+    color:#FBC41F;
+    // background-color:#FBC41F;
+    border:1px solid #FBC41F;
+    border-radius:5px;
+  }
+  ${mobile({ fontSize: "8px", marginLeft: "2px"})};
+
 `;
+
 
 export default function Navbar() {
   return (
@@ -99,20 +126,32 @@ export default function Navbar() {
             {/* SIGN IN */}
           </MenuItem>
           <MenuItem>
-            <NavLink to="/">HOME</NavLink>
+            <NavLink style={{ textDecoration: "none", color: "white" }} to="/">
+              HOME
+            </NavLink>
           </MenuItem>
 
           <MenuItem>
-            <NavLink to="/product">PRODUCT</NavLink>
+            <NavLink
+              style={{ textDecoration: "none", color: "white" }}
+              to="/product"
+            >
+              PRODUCT
+            </NavLink>
           </MenuItem>
 
           <MenuItem>
-            <NavLink to="/aboutUs">ABOUT US</NavLink>
+            <NavLink
+              style={{ textDecoration: "none", color: "white" }}
+              to="/aboutUs"
+            >
+              ABOUT US
+            </NavLink>
           </MenuItem>
 
           <MenuItem>
             <Badge badgeContent={4} color="primary">
-              <ShoppingCartOutlined />
+              <ShoppingCartOutlined  />
             </Badge>
           </MenuItem>
         </Right>

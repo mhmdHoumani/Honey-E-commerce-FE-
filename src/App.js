@@ -4,7 +4,7 @@ import Navbar from "./components/NavBar";
 import Home from "./pages/home/Home";
 import AboutUs from "./pages/aboutUs/aboutUs";
 import Footer from "./components/footer/footer";
-
+import SignUp from "./pages/signUp/signUp.js";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { Announcement } from "./components/Announcement";
 import { Product } from "./pages/Product";
@@ -13,13 +13,10 @@ import { Single } from "./pages/SingleProduct/single";
 import SingleProd from "./components/SingleProduct/SingleProd";
 
 function App() {
-  // const [login, setLogin] = useState(false);
   return (
     <div className="App">
-      {/* <AboutUs/> */}
-
       <BrowserRouter>
-        {/* {!login && <Navbar />} */}
+
 
         <Routes>
           <Route
@@ -71,47 +68,24 @@ function App() {
               </>
             }
           />
-          {/* <Route
-            path="/singlePro"
-            element={
-              <>
-                <SingleProduct />
-              </>
-            }
-          /> */}
-             {/* <Route
-            path="/single"
-            element={
-              <>
-              
-              <SingleProd/>
-                <Single />
-              </>
-            }
-          /> */}
+      
         <Route
             path="/product-details"
             element={
-              
-              
-              
+              <>
+               <Navbar />
               <Single />
+              <Footer/>
+              </>
+             
               
             }
           />
-          {/* <Route path="/login" element={<Login  setLogin={setLogin}/> } /> */}
-          {/* <Route path="*" element={<Navigate to="/" replace />} />
-
-          <Route path="/signup" element={<signUp />} />
-
-          <Route path="/" element={<Home />} />
-          <Route path="/product" element={<Product />} />
-          <Route path="/aboutUs" element={<AboutUs />} /> */}
+          
         </Routes>
-        {/* {!login && <Footer/>} */}
+
       </BrowserRouter>
     </div>
   );
 }
-
 export default App;

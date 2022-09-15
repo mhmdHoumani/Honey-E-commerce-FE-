@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
-import Honey from "../Assets/Images/Honey.png";
-import { categories } from "../data";
+// import Honey from "../Assets/Images/Honey.png";
+import { categories } from "./data";
 import { mobile } from "../responsive";
 
 const CategoryContainer = styled.div`
@@ -27,7 +27,7 @@ export const CardHeader = styled.header`
 `;
 
 export const CardHeading = styled.h1`
-  font-size: 24px;
+  margin-top:25px;
   font-weight: bold;
   text-align: center;
 `;
@@ -100,7 +100,7 @@ const CategoryCard = () => {
         <CategoryContainer>
           <CardWrapper>
             <CardHeader>
-              <CardImage src={item.img} />
+              <CardImage src={require('../Assets/Images/'+item.img+'.jpg')} alt={item.cat}/>
               <CardHeading>{item.title}</CardHeading>
             </CardHeader>
 

@@ -61,6 +61,10 @@ export const CardBody = styled.div`
   padding-right: 32px;
   padding-left: 32px;
 `;
+export const ButtonWrapper = styled.div`
+display: flex;
+justify-content: space-around;
+`;
 
 // export const CardFieldset = styled.fieldset`
 // //   position: relative;
@@ -71,7 +75,7 @@ export const CardBody = styled.div`
 
 export const CardButton = styled.button`
   display: block;
-  width: 100%;
+  width: 45%;
   padding: 12px 0;
   font-family: inherit;
   font-size: 14px;
@@ -108,13 +112,14 @@ export const Card = (props) => {
             <ProductDesc>{description}</ProductDesc>
             <ProductPrice>{price}$</ProductPrice>
           </ProductDetails>
+          <ButtonWrapper>
           <CardButton type="button">Add to cart</CardButton>
           <CardButton type="button" 
           onClick={()=>navigate('/product-details', { state: { title, description, price, image , _id}} )}
           >show product</CardButton>
-          {/* <Link to={`http://127.0.0.1:5000/products/find/${_id}`}>
-          <button>view more</button>
-        </Link> */}
+          </ButtonWrapper>
+     
+         
         </CardBody>
       </CardWrapper>
     </div>
