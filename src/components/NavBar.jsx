@@ -109,7 +109,7 @@ export default function Navbar() {
     setShowNav(!showNav);
   };
   return (
-    <Container>
+    <Container id="navbar_section">
       <Wrapper>
         <Left>
           <Language>EN</Language>

@@ -3,6 +3,8 @@ import styled from "styled-components";
 // import Honey from "../Assets/Images/Honey.png";
 import { categories } from "./data";
 import { mobile } from "../responsive";
+// import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const CategoryContainer = styled.div`
   display: flex;
@@ -29,7 +31,7 @@ export const CardHeader = styled.header`
 `;
 
 export const CardHeading = styled.h1`
-  margin-top:25px;
+  margin-top: 25px;
   font-weight: bold;
   text-align: center;
 `;
@@ -96,13 +98,17 @@ export const CardButton = styled.button`
 `;
 
 const CategoryCard = () => {
+  const navigate=useNavigate()
   return (
     <>
       {categories.map((item) => (
         <CategoryContainer>
           <CardWrapper>
             <CardHeader>
-              <CardImage src={require('../Assets/Images/'+item.img+'.jpg')} alt={item.cat}/>
+              <CardImage
+                src={require("../Assets/Images/" + item.img + ".jpg")}
+                alt={item.cat}
+              />
               <CardHeading>{item.title}</CardHeading>
             </CardHeader>
 
@@ -112,11 +118,18 @@ const CategoryCard = () => {
                 <ProductDesc>Honey and hive</ProductDesc>
                 {/* <ProductPrice>20$</ProductPrice> */}
               </ProductDetails>
-              <CardButton type="button">SHOW PRODUCTS</CardButton>
-
-              {/* <CardFieldset>
-            <CardButton type="button">Add to cart</CardButton>
-        </CardFieldset> */}
+              {/* onClick={()=>navigate('/product-details', { state: { title, description, price, image , _id}} )} */}
+             
+              {/* <Link
+                to={{
+                  pathname: "/product",
+                  
+                  state: { fromDashboard: true },
+                }}
+              >
+                <CardButton type="button">SHOW PRODUCTS</CardButton>
+              </Link> */}
+              <CardButton onClick={()=>navigate('/product' ,{state:{filter:true,category:item.cat}} )} type="button">SHOW PRODUCTS</CardButton>
             </CardBody>
           </CardWrapper>
         </CategoryContainer>
