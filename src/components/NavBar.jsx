@@ -10,25 +10,31 @@ import {
 import React from "react";
 import styled from "styled-components";
 import { NavLink } from "react-router-dom";
-import { mobile } from "../responsive";
+import { inBetween, mobile } from "../responsive";
 import { tablet } from "../responsive";
 const Container = styled.div`
+width:auto
   height: auto;
   position: relative;
   z-index: 2;
   width: 100%;
   color: white;
   background-color: rgba(0, 0, 0, 0.9);
+
   
 
 `;
 const Wrapper = styled.div`
+width:auto;
   padding: 10px 20px;
   display: flex;
   align-items: center;
   justify-content: space-between;
   position: relative;
   ${mobile({ padding: "10px 0px" })};
+  ${tablet ({fontSize: "smaller"})}
+  ${inBetween ({width:"auto"})}
+
 `;
 
 const Left = styled.div`
@@ -52,6 +58,7 @@ const SearchContainer = styled.div`
   background-color: transparent;
   ${mobile({ marginLeft: "0" })}
   ${mobile({ display: "none" })};
+  ${inBetween({display:"none"})}
 
 `;
 
@@ -98,8 +105,8 @@ const MenuItem = styled.div`
     border: 1px solid #fbc41f;
     border-radius: 5px;
   }
-  // ${mobile({ fontSize: "8px", marginLeft: "2px" })};
-  ${mobile({ display: "none" })};
+  // ${mobile({ fontSize: "8px", marginLeft: "2px", display:"none" })};
+  ${tablet({ fontSize: "smaller" })};
 `;
 
 const BurgerMenu = styled.div`
