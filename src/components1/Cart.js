@@ -1,4 +1,4 @@
-import React, { createContext, useReducer, useEffect } from "react";
+import React, { createContext, useReducer, useEffect, useState } from "react";
 import "./cart.css";
 import { products } from "./products";
 import ContextCart from "./ContextCart";
@@ -7,7 +7,8 @@ import { reducer } from "./reducer";
 export const CartContext = createContext();
 
 const initialState = {
-  item: products,
+  // item: products,
+  item: JSON.parse(localStorage.getItem("cart_products")) || [],
   totalAmount: 0,
   totalItem: 0,
 };
@@ -53,7 +54,8 @@ const Cart = () => {
 
   return (
     <CartContext.Provider
-      value={{ ...state, removeItem, clearCart, increment, decrement }}>
+      value={{ ...state, removeItem, clearCart, increment, decrement }}
+    >
       <ContextCart />
     </CartContext.Provider>
   );

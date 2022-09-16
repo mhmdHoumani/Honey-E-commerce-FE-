@@ -34,13 +34,31 @@ const SingleProd = (props) => {
   };
 
   const addToCart = () => {
-    let products = localStorage.getItem("products"); //array
-    //create a new object with key and value (id, price, quantity)
-    // adding the created object to localstorage (by using setItem)
-    let cartNumbers = localStorage.getItem("cartNumbers");
-    localStorage.setItem("cartNumbers", parseInt(cartNumbers) + quantity);
-    let qtty = products.get(_id);
-    products.set(_id, qtty + quantity);
+    if (quantity != 0) {
+      let products_array = JSON.parse(localStorage.getItem("cart_products"));
+      if (products_array == null) products_array = [];
+
+      let fake_quantity = 0;
+
+      products_array.forEach(function (item) {
+        if (item._id == props._id) {
+          fake_quantity = item.qty;
+          item.qty = fake_quantity + quantity;
+          item.price = (fake_quantity + quantity) * props.price;
+        }
+      });
+      console.log("correct ", products_array);
+
+      if (fake_quantity == 0) {
+        let product_object = JSON.parse(JSON.stringify(props));
+        product_object.qty = quantity;
+        product_object.price = quantity * props.price;
+        products_array.push(product_object);
+        localStorage.setItem("cart_products", JSON.stringify(products_array));
+      } else {
+        localStorage.setItem("cart_products", JSON.stringify(products_array));
+      }
+    }
   };
 
   return (

@@ -3,7 +3,7 @@ export const reducer = (state, action) => {
       return {
         ...state,
         item: state.item.filter((curElem) => {
-          return curElem.id !== action.payload;
+          return curElem._id !== action.payload;
         }),
       };
     }
@@ -34,7 +34,7 @@ export const reducer = (state, action) => {
         .filter((curElem) => curElem.quantity !== 0);
       return { ...state, item: updatedCart };
     }
-  
+  // Add here the total price 
     if (action.type === "GET_TOTAL") {
       let { totalItem, totalAmount } = state.item.reduce(
         (accum, curVal) => {

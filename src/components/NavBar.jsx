@@ -103,7 +103,8 @@ export default function Navbar() {
     localStorage.getItem("cartNumbers")
   );
   useEffect(() => {}, [cartNumbers]);
-
+let cart = JSON.parse(localStorage.getItem("cart_products")) || [];
+// console.log(cart);
   return (
     <Container>
       <Wrapper>
@@ -149,10 +150,14 @@ export default function Navbar() {
 
           <MenuItem>
             <Badge
-              badgeContent={localStorage.getItem("cartNumbers")}
+              badgeContent={cart.length}
               color="primary"
             >
+              <NavLink
+            to="/cart"
+          >
               <ShoppingCartOutlined />
+              </NavLink>
             </Badge>
           </MenuItem>
         </Right>
