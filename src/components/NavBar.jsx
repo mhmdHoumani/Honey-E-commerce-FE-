@@ -63,7 +63,7 @@ const SearchContainer = styled.div`
 `;
 
 const Input = styled.input`
-  border: none;
+  border: none;  
   background-color: transparent;
   color: white;
   ${mobile({ width: "50px" })};
@@ -102,7 +102,6 @@ const MenuItem = styled.div`
   &:hover {
     color: #fbc41f;
     // background-color:#FBC41F;
-    border: 1px solid #fbc41f;
     border-radius: 5px;
   }
   // ${mobile({ fontSize: "8px", marginLeft: "2px", display:"none" })};
