@@ -1,13 +1,13 @@
-import { useState } from "react";
-
 import { Badge } from "@material-ui/core";
+import { cardNumContaxt } from "../App";
+
 import {
   MenuOutlined,
   PermIdentityOutlined,
   Search,
   ShoppingCartOutlined,
 } from "@material-ui/icons";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import { NavLink } from "react-router-dom";
 import { inBetween, mobile } from "../responsive";
@@ -117,7 +117,7 @@ const BurgerMenu = styled.div`
 
 export default function Navbar() {
   const [showNav, setShowNav] = useState(false);
-
+  let cart = JSON.parse(localStorage.getItem("cart_products")) || [];
   const theFunction = () => {
     setShowNav(!showNav);
   };
@@ -165,8 +165,15 @@ export default function Navbar() {
           </MenuItem>
 
           <MenuItem>
-            <Badge badgeContent={4} color="primary">
+            <Badge
+              badgeContent={cart.length}
+              color="primary"
+            >
+              <NavLink
+            to="/cart"
+          >
               <ShoppingCartOutlined />
+              </NavLink>
             </Badge>
           </MenuItem>
         </Right>

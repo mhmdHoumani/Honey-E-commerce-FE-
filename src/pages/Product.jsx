@@ -38,7 +38,6 @@ export const Product = () => {
     getData();
   }, [state]);
 
-
   return (
     <>
       <Container>

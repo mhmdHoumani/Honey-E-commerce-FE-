@@ -1,4 +1,5 @@
-import "./singleProduct.css"
+import * as React from "react";
+import "./singleProduct.css";
 import image1 from "../../Assets/Images/honeyDrops.jpg";
 import styled from "styled-components";
 import { useEffect, useRef, useState } from "react";
@@ -14,15 +15,15 @@ import {
 import minus from "../../Assets/Images/icon-minus.svg";
 import plus from "../../Assets/Images/icon-plus.svg";
 import cart from "../../Assets/Images/icon-cart-white.svg";
+import { cardNumContaxt } from "../../App";
 
 const SingleProd = (props) => {
-  const { title, description, price, image , id} = props;
+  const { setCardNum, cardNum } = React.useContext(cardNumContaxt);
+  const { title, description, price, image, _id } = props;
 
   const [quantity, setQuantity] = useState(0);
   const [preview, setPreview] = useState(0);
   const ref = useRef(null);
-
-
 
   const quantityHandler = (increment) => {
     if (increment) {
@@ -32,27 +33,44 @@ const SingleProd = (props) => {
     }
   };
 
+  const addToCart = () => {
+    if (quantity != 0) {
+      let products_array = JSON.parse(localStorage.getItem("cart_products"));
+      if (products_array == null) products_array = [];
+
+      let fake_quantity = 0;
+
+      products_array.forEach(function (item) {
+        if (item._id == props._id) {
+          fake_quantity = item.qty;
+          item.qty = fake_quantity + quantity;
+          item.price = (fake_quantity + quantity) * props.price;
+        }
+      });
+      console.log("correct ", products_array);
+
+      if (fake_quantity == 0) {
+        let product_object = JSON.parse(JSON.stringify(props));
+        product_object.qty = quantity;
+        product_object.price = quantity * props.price;
+        products_array.push(product_object);
+        localStorage.setItem("cart_products", JSON.stringify(products_array));
+      } else {
+        localStorage.setItem("cart_products", JSON.stringify(products_array));
+      }
+    }
+  };
+
   return (
     <>
       <Body>
         <Images>
           <div className="displayed">
             <div className="desktop-carousel">
-              <img
-                src={image1}
-                alt="current image"
-                className="current-image"
-              />
+              <img src={image1} alt="current image" className="current-image" />
             </div>
             <div className="mobile-carousel">
-            <img
-                  src={image1}
-                  alt="current image"
-                 
-                  className="current-image"
-                  
-                />
-           
+              <img src={image1} alt="current image" className="current-image" />
             </div>
           </div>
         </Images>
@@ -66,15 +84,13 @@ const SingleProd = (props) => {
             <Price>
               <div className="total-price">
                 <div className="discouted-price">
-                  <p>
-                  {price}$
-                  </p>
+                  <p>{price}$</p>
                 </div>
               </div>
               {/* <div className="original-weight"> </div> */}
-              
+
               <radioWrapper>
-                <FormControl >
+                <FormControl>
                   <FormLabel id="demo-radio-buttons-group-label">
                     Weight
                   </FormLabel>
@@ -119,7 +135,7 @@ const SingleProd = (props) => {
               </div>
             </div>
             <div className="add-to-cart">
-              <button>
+              <button onClick={addToCart}>
                 <img src={cart} alt={cart} /> Add to cart
               </button>
             </div>
@@ -281,8 +297,6 @@ const Price = styled.div`
     // color: hsl(220, 14%, 75%);
   }
 
-
-
   @media (max-width: 768px) {
     display: flex;
     align-items: center;
@@ -310,7 +324,7 @@ const Buttons = styled.div`
     user-select: none;
     margin-right: 20px;
 
-    .quantity img{
+    .quantity img {
       color: black;
     }
     .current-quantity {
@@ -394,7 +408,6 @@ const Buttons = styled.div`
   }
 `;
 
-
 const Controls = styled.div`
   position: absolute;
   top: 50%;
@@ -423,6 +436,5 @@ const Controls = styled.div`
 const radioWrapper = styled.div`
   display: flex;
   background-color: red;
-
 `;
 export default SingleProd;
