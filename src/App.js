@@ -6,6 +6,7 @@ import AboutUs from "./pages/aboutUs/aboutUs";
 import Footer from "./components/footer/footer";
 import SignUp from "./pages/signUp/signUp.js";
 import OrderSummary from "./components/orderSummary/orderSummary";
+import ShippingDetails from "./components/shippingDetails/shippingDetails"
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { Announcement } from "./components/Announcement";
 import { Product } from "./pages/Product";
@@ -16,7 +17,7 @@ function App() {
   return (
     <div className="App">
       <BrowserRouter>
-        {!login && <Navbar />}
+        {!login  && <Navbar />}
         <Routes>
           <Route exact path="/login" element={<><Login /></>}/>
           <Route path="/"element={<><Navbar /><Home /><Footer /></>}          />
@@ -25,6 +26,7 @@ function App() {
           <Route path="/aboutUs"element={<><Navbar /><AboutUs /><Footer /></>}/>
           <Route path="/signup"element={<><SignUp /></>}/>
           <Route path="/ordersummary"element={<><OrderSummary/></>}/>
+          <Route path="/shippingdetails"element={<><ShippingDetails/></>}/>
         </Routes>
       </BrowserRouter>
     </div>
