@@ -145,7 +145,7 @@ export default function Navbar() {
               style={{ textDecoration: "none", color: "white" }}
               to="/product"
             >
-              PRODUCT
+              PRODUCTS
             </NavLink>
           </MenuItem>
 
@@ -172,13 +172,13 @@ export default function Navbar() {
         <div className={showNav ? "show" : "dontshow"}>
           <ul>
             <li>
-              <a href="#">Home</a>
+              <a href="/">HOME</a>
             </li>
             <li>
-              <a href="#">About</a>
+              <a href="/product">PRODUCTS</a>
             </li>
             <li>
-              <a href="#">Contact</a>
+              <a href="/aboutUs">ABOUT US</a>
             </li>
             <li>
               <a href="#">Profile</a>

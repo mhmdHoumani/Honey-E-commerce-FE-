@@ -10,9 +10,10 @@ import InfoCard from "../../components/InfoCard";
 
 const CategoryContainer = styled.div`
   display: flex;
+  flex-wrap:wrap;
   justify-content: space-evenly;
   width:auto;
-  // ${mobile({ display:"flex", justifyContent:"space-evenly",flexDirection:"column"})}
+  // ${mobile({ flexDirection:"column"})}
   ${tablet({})}
 `;
 function Home() {
