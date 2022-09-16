@@ -19,6 +19,7 @@ function App() {
 
 
         <Routes>
+          
           <Route
             exact
             path="/login"
@@ -32,7 +33,6 @@ function App() {
             path="/"
             element={
               <>
-                {/* <Announcement /> */}
                 <Navbar />
                 <Home />
                 <Footer />
@@ -50,6 +50,7 @@ function App() {
               </>
             }
           />
+          
           <Route
             path="/aboutUs"
             element={

@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
-
+import { useLocation } from "react-router-dom";
 import { Card } from "../components/Card";
-// import React from "react";
 import styled from "styled-components";
 import { mobile, tablet } from "../responsive";
 const Container = styled.div`
@@ -11,35 +10,47 @@ const Container = styled.div`
   ${mobile({ flexDirection: "column" })}
   ${tablet({})}
 `;
-
 export const Product = () => {
   const [data, setData] = useState([]);
 
-  const getData = async () => {
-    const response = await fetch(
-      `http://127.0.0.1:5000/products`
-    )
-    let data = await response.json();
+  const[shown,setShown]=useState([])
 
-    setData(data);
-  
-    console.log(data)
-  }
+  const {state} = useLocation();
+  console.log(state);
+  const getData = async () => {
+    const response = await fetch(`http://127.0.0.1:5000/products/`);
+    let res = await response.json();
+
+    setData(res);
+    setShown(res);
+    console.log(state.category);
+    if(state.filter) {
+      console.log('hi gi');
+      console.log('shown');
+      setShown(res.filter((ele)=> 
+        ele.categories.includes(state.category)))
+    }
+
+    console.log(shown);
+  };
 
   useEffect(() => {
-
-      getData()
-  
-  }, []);
+    getData();
+  }, [state]);
 
 
   return (
     <>
       <Container>
-      {data.map((e) => (
-        <Card title={e.title} description={e.desc} price={e.price} _id={e._id} image={e.img}/>
-      ))}
-       
+        {shown.map((e) => (
+          <Card
+            title={e.title}
+            description={e.desc}
+            price={e.price}
+            _id={e._id}
+            image={e.img}
+          />
+        ))}
       </Container>
     </>
   );
