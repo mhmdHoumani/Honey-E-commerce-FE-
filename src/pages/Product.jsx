@@ -46,7 +46,9 @@ export const Product = () => {
           <Card
             title={e.title}
             description={e.desc}
-            price={e.price}
+            price_1kg={e.price_1kg}
+            price_500g={e.price_500g}
+            weight={e.weight}
             _id={e._id}
             image={e.img}
           />
