@@ -32,7 +32,7 @@ function App() {
             path="/"
             element={
               <>
-                <Announcement />
+                {/* <Announcement /> */}
                 <Navbar />
                 <Home />
                 <Footer />
