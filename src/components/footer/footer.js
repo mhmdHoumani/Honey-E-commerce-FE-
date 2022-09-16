@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect} from "react";
 import "./footer.css";
 import {
   AiOutlineInstagram,
@@ -8,7 +8,9 @@ import {
 import { RiFacebookFill } from "react-icons/ri";
 import { NavLink } from "react-router-dom";
 
+
 const Footer = () => {
+
   return (
     <>
       <div className="container_footer">
@@ -40,7 +42,7 @@ const Footer = () => {
             <button className="button_footer">Sign UP</button>
           </div>
           <div className="arrow_bottom">
-            <a>
+            <a href="#navbar_section">
               <AiOutlineArrowUp />
             </a>
           </div>

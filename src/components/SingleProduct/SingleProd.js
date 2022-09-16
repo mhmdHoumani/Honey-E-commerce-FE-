@@ -26,7 +26,7 @@ const SingleProd = (props) => {
 
   const quantityHandler = (increment) => {
     if (increment) {
-      setQuantity((prev) => (prev === 10 ? prev : prev + 1));
+      setQuantity((prev) => (prev === 100 ? prev : prev + 1));
     } else {
       setQuantity((prev) => (prev === 0 ? prev : prev - 1));
     }

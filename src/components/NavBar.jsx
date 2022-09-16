@@ -107,7 +107,7 @@ const MenuItem = styled.div`
 
 export default function Navbar() {
   return (
-    <Container>
+    <Container id="navbar_section">
       <Wrapper>
         <Left>
           <Language>EN</Language>
