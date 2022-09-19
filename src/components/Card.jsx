@@ -93,21 +93,14 @@ export const CardButton = styled.button`
 `;
 
 export const Card = (props) => {
-  const {setCardNum,cardNum} = React.useContext(cardNumContaxt)
-
-  const { title, description, price, image, _id } = props;
-
-  const navigate = useNavigate();
-  const addTocard = () => {
-    setCardNum(cardNum + 1);
-    console.log(cardNum)
-  };
+  const { title, description,weight,price_1kg, price_500g, avatar , _id} = props;
+  const navigate=useNavigate()
 
   return (
     <div className="" style={{ height: "90vh" }}>
       <CardWrapper >
         <CardHeader>
-          <CardImage src={Honey} />
+          <CardImage src={avatar} />
           <CardHeading>{title}</CardHeading>
         </CardHeader>
 
@@ -115,22 +108,13 @@ export const Card = (props) => {
           <ProductDetails>
             <ProductName>Honey Jar</ProductName>
             <ProductDesc>{description}</ProductDesc>
-            <ProductPrice>{price}$</ProductPrice>
+            <ProductPrice>{price_1kg}$</ProductPrice>
           </ProductDetails>
           <ButtonWrapper>
-            <CardButton onClick={addTocard} type="button">
-              Add to cart
-            </CardButton>
-            <CardButton
-              type="button"
-              onClick={() =>
-                navigate("/product-details", {
-                  state: { title, description, price, image, _id },
-                })
-              }
-            >
-              show product
-            </CardButton>
+          <CardButton type="button">Add to cart</CardButton>
+          <CardButton type="button" 
+          onClick={()=>navigate('/product-details', { state: { title, description, price_1kg,price_500g, avatar , _id}} )}
+          >show product</CardButton>
           </ButtonWrapper>
         </CardBody>
       </CardWrapper>

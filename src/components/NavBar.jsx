@@ -167,7 +167,7 @@ export default function Navbar() {
           <MenuItem>
             <Badge
               badgeContent={cart.length}
-              color="primary"
+              color="yellow"
             >
               <NavLink
             to="/cart"

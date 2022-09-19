@@ -98,7 +98,10 @@ function App() {
             path="/cart"
             element={
               <>
+               <Navbar />
                 <Cart />
+              {/* <Footer/> */}
+
               </>
             }
           />
