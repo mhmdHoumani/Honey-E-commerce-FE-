@@ -3,38 +3,46 @@ import { Scrollbars } from "react-custom-scrollbars-2";
 import Items from "./Items";
 import { CartContext } from "./Cart";
 import Navbar from "../components/NavBar";
+import { navigate, useNavigate } from "react-router-dom";
 
 const ContextCart = () => {
   const { item, clearCart, totalItem, totalAmount } = useContext(CartContext);
-  let cart = JSON.parse(localStorage.getItem("cart_products")) || [];
+  // let cart = JSON.parse(localStorage.getItem("cart_products")) || [];
   // console.log(cart[0].total_qty);
   const [count, setCount] = useState(0);
 
+  const navigate = useNavigate();
+
+  const handleClick = () => {
+    navigate("/product", { replace: true });
+  };
+
   useEffect(() => {
     var num = 0;
-    for (let i = 0; i < cart.length; i++) num += cart[i].total_qty;
+    for (let i = 0; i < item.length; i++) num += item[i].total_qty;
     console.log(num);
     setCount(num);
-  }, [cart]);
+  }, [item]);
   if (item.length === 0) {
     return (
       <>
         <div className="container">
           <header className="header">
-            <div className="continue-shopping">
+            <button className="continue-shopping" onClick={handleClick}>
               <img
                 src="./images/arrow.png"
                 alt="arrow"
                 className="arrow-icon"
               />
               <h3>continue shopping</h3>
-            </div>
+              {/* <button onClick={handleClick}><h3>continue shopping</h3> </button> */}
+            </button>
           </header>
 
           <section className="main-cart-section">
             <h1>shopping Cart</h1>
             <p className="total-items">
-              you have <span className="total-items-count">0   </span> items in
+              you have <span className="total-items-count">0 </span> items in
               shopping cart
             </p>
           </section>

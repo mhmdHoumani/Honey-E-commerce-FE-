@@ -63,6 +63,10 @@ body {
   height: inherit;
   align-items: center;
   padding-right: 3rem;
+  background-color: transparent;
+  border:none;  
+  cursor: pointer;
+  width:10px;
 }
 
 .continue-shopping .arrow-icon {
@@ -76,6 +80,7 @@ body {
   color: var(--main-color);
   margin-left: 1.5rem;
   font-weight: 400;
+  width:4rem;
 }
 
 .cart-icon {
