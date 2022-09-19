@@ -13,7 +13,8 @@ import { NavLink } from "react-router-dom";
 import { mobile } from "../responsive";
 import { tablet } from "../responsive";
 const Container = styled.div`
-  height: auto;
+  padding-top:10px;
+  height: 7vh;
   position: absolute;
   z-index: 1;
   width: 100%;
