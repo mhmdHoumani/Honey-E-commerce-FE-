@@ -10,8 +10,10 @@ import {
   CCardText,
   CCardFooter,
 } from "@coreui/react";
+import '@coreui/coreui/dist/css/coreui.min.css'
 import batata from "../../Assets/Images/batata.jpg";
 import batata2 from "../../Assets/Images/batata2.jpg";
+
 
 const AboutUs = () => {
   return (
