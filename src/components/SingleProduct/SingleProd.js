@@ -16,10 +16,13 @@ import minus from "../../Assets/Images/icon-minus.svg";
 import plus from "../../Assets/Images/icon-plus.svg";
 import cart from "../../Assets/Images/icon-cart-white.svg";
 import { cardNumContaxt } from "../../App";
+import { useLocation } from "react-router-dom";
 
 const SingleProd = (props) => {
+  const {state} = useLocation()
   const { title, description, weight, price_1kg, price_500g, avatar, id } =
     props;
+    console.log("props",props)
   const [quantity, setQuantity] = useState(1);
   const [preview, setPreview] = useState(0);
   const ref = useRef(null);
