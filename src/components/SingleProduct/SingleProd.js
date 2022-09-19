@@ -18,7 +18,8 @@ import cart from "../../Assets/Images/icon-cart-white.svg";
 import { cardNumContaxt } from "../../App";
 
 const SingleProd = (props) => {
-  const { title, description,weight, price_1kg,price_500g, image , id} = props;
+  const { title, description, weight, price_1kg, price_500g, image, id } =
+    props;
   const [quantity, setQuantity] = useState(1);
   const [preview, setPreview] = useState(0);
   const ref = useRef(null);
@@ -36,25 +37,45 @@ const SingleProd = (props) => {
     if (quantity != 0) {
       let products_array = JSON.parse(localStorage.getItem("cart_products"));
       if (products_array == null) products_array = [];
+      let product_object = JSON.parse(JSON.stringify(props));
 
-      let fake_quantity = 0;
+      let existing_quantity_500 = 0;
+      let existing_quantity_1 = 0; // 
 
       products_array.forEach(function (item) {
         if (item._id == props._id) {
-          fake_quantity = item.qty;
-          item.qty = fake_quantity + quantity;
-          item.price = (fake_quantity + quantity) * props.price;
+          existing_quantity_500 = item.qty_500;
+          existing_quantity_1 = item.qty_1;
+          if (weight1 == 1) {
+            item.qty_1 += quantity;
+            item.total_qty += quantity;
+            item.total_price +=
+               quantity * product_object.price_1kg;
+          } else {
+            item.qty_500 += quantity;
+            item.total_qty += quantity;
+            item.total_price =
+              item.total_price + quantity * product_object.price_500g;
+          }
         }
-      });
-      console.log("correct ", products_array);
-
-      if (fake_quantity == 0) {
-        let product_object = JSON.parse(JSON.stringify(props));
-        product_object.qty = quantity;
-        product_object.price = quantity * props.price;
-        products_array.push(product_object);
         localStorage.setItem("cart_products", JSON.stringify(products_array));
-      } else {
+      });
+
+      if (existing_quantity_500 == 0 && existing_quantity_1 == 0) {
+        let product_object = JSON.parse(JSON.stringify(props));
+        product_object.total_qty = quantity;
+
+        if (weight1 == 1) {
+          product_object.qty_1 = quantity;
+          product_object.qty_500 = 0;
+          product_object.total_price = quantity * product_object.price_1kg;
+        } else {
+          product_object.qty_500 = quantity;
+          product_object.qty_1 = 0;
+          product_object.total_price = quantity * product_object.price_500g;
+        }
+
+        products_array.push(product_object);
         localStorage.setItem("cart_products", JSON.stringify(products_array));
       }
     }

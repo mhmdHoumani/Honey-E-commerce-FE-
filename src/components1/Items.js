@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { CartContext } from "./Cart";
 
-const Items = ({ _id, description, title, img, price, qty }) => {
+const Items = ({ _id, description, title, img, total_price, qty }) => {
   const { removeItem, increment, decrement } = useContext(CartContext);
 
   const removeFromCart = (id) => {
@@ -33,7 +33,7 @@ const Items = ({ _id, description, title, img, price, qty }) => {
         </div>
 
         <div className="price">
-          <h3>{price}$</h3>
+          <h3>{total_price}$</h3>
         </div>
 
         <div className="remove-item">
