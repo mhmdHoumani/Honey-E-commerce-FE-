@@ -5,10 +5,10 @@ import "./singleProduct.css";
 export const Single = () => {
   const location =useLocation();
   console.log(location.state);
-  let {title, description,price_1kg,price_500g,_id}=location.state
+  let {title, description,price_1kg,price_500g,_id,avatar}=location.state
   return (
     <>
-    <SingleProd title={title} description={description} price_1kg={price_1kg} price_500g={price_500g}  _id={_id}/>
+    <SingleProd title={title} description={description} price_1kg={price_1kg} price_500g={price_500g} avatar={avatar}  _id={_id}/>
     </>
     
   );

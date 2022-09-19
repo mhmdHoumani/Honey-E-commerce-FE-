@@ -93,14 +93,14 @@ export const CardButton = styled.button`
 `;
 
 export const Card = (props) => {
-  const { title, description,weight,price_1kg, price_500g, image , _id} = props;
+  const { title, description,weight,price_1kg, price_500g, avatar , _id} = props;
   const navigate=useNavigate()
 
   return (
     <div className="" style={{ height: "90vh" }}>
       <CardWrapper >
         <CardHeader>
-          <CardImage src={image} />
+          <CardImage src={avatar} />
           <CardHeading>{title}</CardHeading>
         </CardHeader>
 
@@ -113,7 +113,7 @@ export const Card = (props) => {
           <ButtonWrapper>
           <CardButton type="button">Add to cart</CardButton>
           <CardButton type="button" 
-          onClick={()=>navigate('/product-details', { state: { title, description, price_1kg,price_500g, image , _id}} )}
+          onClick={()=>navigate('/product-details', { state: { title, description, price_1kg,price_500g, avatar , _id}} )}
           >show product</CardButton>
           </ButtonWrapper>
         </CardBody>

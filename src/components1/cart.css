@@ -37,50 +37,55 @@ body {
   margin: auto;
 } */
 
-.header {
+.header_cart {
   width: 100%;
   line-height: 10rem;
   display: grid;
   grid-template-columns: 1fr 1fr;
   border-bottom: 0.1rem solid #9a9191;
   transform: rotate(-0.05deg);
-  margin-bottom: 7rem;
+  margin-bottom: 9rem;
   background-color: var(--yellow);
   padding-left: 10rem;
-  
+
 }
-.container{
+.container_cart {
+  width: 100%;
   animation: fadeIn 2.5s;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  height: auto;
   background-color: var(--yellow);
+  margin: auto;
+  position: absolute;
+  margin-top: 3.5rem;
 }
-.continue-shopping {
+.continue-shopping-cart {
   display: flex;
   height: inherit;
   align-items: center;
   padding-right: 3rem;
   background-color: transparent;
-  border:none;  
+  border: none;
   cursor: pointer;
-  width:10px;
+  width: 100px;
+  margin-top: 3.2rem;
 }
 
-.continue-shopping .arrow-icon {
+.continue-shopping-cart .arrow-icon {
   width: 2.2rem;
   height: 2.2rem;
 }
 
-.continue-shopping h3 {
+.continue-shopping-cart h3 {
   font-size: 2rem;
   text-transform: capitalize;
   color: var(--main-color);
   margin-left: 1.5rem;
   font-weight: 400;
-  width:4rem;
+  width: 5rem;
 }
 
 .cart-icon {
@@ -115,11 +120,13 @@ body {
   align-items: center;
   color: var(--main-color);
 }
-.main-cart-section {
+.main-cart-section-cart  {
   font-size: 55.5%;
   width: 80%;
   height: 100vh;
   margin: auto;
+  /* position: absolute; */
+  /* margin-top: 5rem; */
 }
 .main-cart-section h1 {
   font-style: normal;
@@ -141,13 +148,18 @@ body {
 
 .total-items-count {
   font-weight: bold;
-  color: var(--main-color);
+  /* color: var(--yellow); */
+  background-color: #ffb800;
+  border: solid 1px black;
+  padding: 0.42rem 0.7rem 0.42rem 0.7rem;
+  border-radius: 50px;
+  margin-right: 10px;
 }
 
 /* cart main div start  */
 
 .main-cart-section .cart-items {
-  width: 100%;
+  width: 65%;
   height: 62rem;
   background: linear-gradient(
     103.49deg,
@@ -161,18 +173,16 @@ body {
   display: grid;
   place-items: center;
   font-size: small;
- 
 }
 
 .cart-items hr {
   margin: 2rem auto;
   overflow-y: scroll;
- 
 }
 
 .cart-items-container {
   width: 90%;
-  height: 56rem;
+  height: 55rem;
   font-size: small;
 }
 
@@ -183,19 +193,23 @@ body {
   margin: auto;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+ 
 }
 
 .items-info .product-img img {
-  width: 16rem;
+  width: 14rem;
   height: 11rem;
-  filter: drop-shadow(0rem 0.4rem 1rem #f1f7ff);
+  /* filter: drop-shadow(0rem 0.4rem 1rem #f1f7ff); */
   border-radius: 1rem;
+  padding-right: 10px;
+   
 }
 
 .items-info .title {
   display: flex;
   justify-content: center;
   flex-direction: column;
+  padding-left: 10px;
 }
 
 .items-info .title h2 {
@@ -265,6 +279,7 @@ body {
   font-size: 2rem;
   text-transform: capitalize;
   color: var(--main-color);
+  padding-right: 50px;
 }
 
 .remove-item {
@@ -277,13 +292,14 @@ body {
 .remove-item button {
   border: none;
   background-color: transparent;
+  /* margin-left: 1rem; */
+  /* padding-left: 110px; */
 }
 
 .card-total {
   width: 95%;
   margin-top: 7rem;
   text-align: right;
-  
 }
 
 .card-total h3 {
@@ -292,7 +308,6 @@ body {
   line-height: 3.2rem;
   text-transform: capitalize;
   color: #606166;
-   
 }
 
 .card-total h3 span {
@@ -337,7 +352,7 @@ body {
 }
 
 .card-total button:hover {
-  background-color: #0077dc;
+  background-color: yellow;
 }
 
 .card-total .clear-cart {
@@ -399,6 +414,7 @@ body {
 
   .remove-item {
     justify-content: flex-start;
+    padding-left: 10px;
   }
 
   .card-total {
@@ -409,4 +425,30 @@ body {
   .card-total button {
     margin-bottom: 3rem;
   }
+
+  .header_cart .continue-shopping-cart {
+    display: flex;
+    height: inherit;
+    /* align-items: center; */
+    padding-right: 15rem;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    width: 100px;
+    margin-top: 3.2rem;
+  }
 }
+
+/* @media (max-width: 100px) {
+  .header_cart .continue-shopping-cart {
+    display: flex;
+    height: inherit;
+    align-items: center;
+   
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    width: 100px;
+    margin-top: 3.2rem;
+  }
+} */

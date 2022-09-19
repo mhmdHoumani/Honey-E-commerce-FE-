@@ -4,7 +4,7 @@ import DeleteIcon from "@mui/icons-material/Delete";
 import IconButton from "@mui/material/IconButton";
 import Tooltip from "@mui/material/Tooltip";
 
-const Items = ({ _id, description, title, img, total_price, qty }) => {
+const Items = ({ _id, description, title, avatar, total_price, qty }) => {
   const { removeItem, increment, decrement } = useContext(CartContext);
 
   const removeFromCart = (id) => {
@@ -19,7 +19,7 @@ const Items = ({ _id, description, title, img, total_price, qty }) => {
     <>
       <div className="items-info">
         <div className="product-img">
-          <img src={img} alt="iamge" />
+          <img src={avatar} alt="iamge" />
         </div>
 
         <div className="title">
@@ -28,11 +28,11 @@ const Items = ({ _id, description, title, img, total_price, qty }) => {
         </div>
 
         <div className="add-minus-quantity">
-          <i
+          {<i
             className="fas fa-minus minus"
             style={{ color: "red" }}
             onClick={() => decrement(_id)}
-          ></i>
+          ></i>}
           <input type="text" placeholder={qty} />
           <i className="fas fa-plus add" onClick={() => increment(_id)}></i>
         </div>

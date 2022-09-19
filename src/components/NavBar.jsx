@@ -13,10 +13,10 @@ import { NavLink } from "react-router-dom";
 import { inBetween, mobile } from "../responsive";
 import { tablet } from "../responsive";
 const Container = styled.div`
-width:auto
-  height: auto;
-  position: relative;
-  z-index: 2;
+  padding-top:10px;
+  height: 7vh;
+  position: absolute;
+  z-index: 1;
   width: 100%;
   color: white;
   background-color: rgba(0, 0, 0, 0.9);

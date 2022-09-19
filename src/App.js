@@ -3,7 +3,7 @@ import Login from "./pages/login/login";
 import * as React from "react";
 import Navbar from "./components/NavBar";
 import Home from "./pages/home/Home";
-// import AboutUs from "./pages/aboutUs/aboutUs";
+import AboutUs from "./pages/aboutUs/aboutUs";
 import Footer from "./components/footer/footer";
 import SignUp from "./pages/signUp/signUp.js";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
@@ -59,7 +59,7 @@ function App() {
             }
           />
           
-          {/* <Route
+          <Route
             path="/aboutUs"
             element={
               <>
@@ -68,7 +68,7 @@ function App() {
                 <Footer />
               </>
             }
-          /> */}
+          />
           <Route
             path="/signup"
             element={
@@ -98,7 +98,10 @@ function App() {
             path="/cart"
             element={
               <>
+               <Navbar />
                 <Cart />
+              {/* <Footer/> */}
+
               </>
             }
           />

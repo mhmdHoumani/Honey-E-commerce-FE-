@@ -7,7 +7,7 @@ import { navigate, useNavigate } from "react-router-dom";
 
 const ContextCart = () => {
   const { item, clearCart, totalItem, totalAmount } = useContext(CartContext);
-  // let cart = JSON.parse(localStorage.getItem("cart_products")) || [];
+  let cart = JSON.parse(localStorage.getItem("cart_products")) || [];
   // console.log(cart[0].total_qty);
   const [count, setCount] = useState(0);
 
@@ -21,27 +21,27 @@ const ContextCart = () => {
     var num = 0;
     for (let i = 0; i < item.length; i++) num += item[i].total_qty;
     console.log(num);
-    setCount(num);
+    setCount(num);  
   }, [item]);
   if (item.length === 0) {
     return (
       <>
-        <div className="container">
-          <header className="header">
-            <button className="continue-shopping" onClick={handleClick}>
+        <div className="container_cart">
+          <header className="header_cart">
+            <button className="continue-shopping-cart" onClick={handleClick}>
               <img
                 src="./images/arrow.png"
                 alt="arrow"
                 className="arrow-icon"
               />
-              <h3>continue shopping</h3>
+              <h3>go back </h3>
               {/* <button onClick={handleClick}><h3>continue shopping</h3> </button> */}
             </button>
           </header>
 
-          <section className="main-cart-section">
+          <section className="main-cart-section-cart">
             <h1>shopping Cart</h1>
-            <p className="total-items">
+            <p className="total-items-cart">
               you have <span className="total-items-count">0 </span> items in
               shopping cart
             </p>
@@ -53,7 +53,7 @@ const ContextCart = () => {
 
   return (
     <>
-      <Navbar />
+      {/* <Navbar /> */}
 
       <section className="main-cart-section">
         <h1>shopping Cart</h1>

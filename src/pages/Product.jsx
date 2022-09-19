@@ -22,6 +22,7 @@ export const Product = () => {
     let res = await response.json();
 
     setData(res);
+    console.log(res);
     setShown(res);
     console.log(state.category);
     if(state.filter) {
@@ -49,7 +50,7 @@ export const Product = () => {
             price_500g={e.price_500g}
             weight={e.weight}
             _id={e._id}
-            image={e.img}
+            avatar={e.avatar}
           />
         ))}
       </Container>
