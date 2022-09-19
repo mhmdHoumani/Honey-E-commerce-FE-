@@ -2,7 +2,9 @@ import * as React from "react";
 import styled, { css } from "styled-components";
 import Honey from "../Assets/Images/Honey.png";
 import { Link, useNavigate } from "react-router-dom";
-import {cardNumContaxt} from '../App'
+import {cardNumContaxt} from '../App';
+import { mobile, tablet } from "../responsive";
+
 
 export const CardWrapper = styled.div`
   overflow: hidden;
@@ -14,6 +16,10 @@ export const CardWrapper = styled.div`
   font-family: Quicksand, arial, sans-serif;
   box-shadow: 0 0 10px 0 #bbbbbb;
   border-radius: 7px;
+  ${mobile({ width: "300px",  margin: 'auto', })}
+  ${tablet({ width: "300px",  margin: 'auto' })}
+
+
 `;
 
 export const CardHeader = styled.header`
@@ -31,6 +37,9 @@ export const CardImage = styled.img`
   width: 384px;
   height: 384px;
   object-fit: contain;
+  ${mobile({ width: "200px", height: "200px"})}
+  ${tablet({ width: "290px", height: "250px"})}
+
 `;
 export const ProductDetails = styled.div`
   text-align: center;
@@ -64,12 +73,9 @@ export const ButtonWrapper = styled.div`
   justify-content: space-around;
 `;
 
-// export const CardFieldset = styled.fieldset`
-// //   position: relative;
-//   padding: 0;
-//   margin: 0;
-//   border: 0;
-// `;
+export const ProductPageWrapper = styled.div`
+height: "90vh"
+`;
 
 export const CardButton = styled.button`
   display: block;
@@ -104,7 +110,11 @@ export const Card = (props) => {
   };
 
   return (
-    <div className="" style={{ height: "90vh" }}>
+   
+      <ProductPageWrapper>
+
+     
+      
       <CardWrapper >
         <CardHeader>
           <CardImage src={Honey} />
@@ -134,6 +144,7 @@ export const Card = (props) => {
           </ButtonWrapper>
         </CardBody>
       </CardWrapper>
-    </div>
+      </ProductPageWrapper>
+    
   );
 };
