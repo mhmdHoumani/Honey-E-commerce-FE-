@@ -18,18 +18,17 @@ import cart from "../../Assets/Images/icon-cart-white.svg";
 import { cardNumContaxt } from "../../App";
 
 const SingleProd = (props) => {
-  const { setCardNum, cardNum } = React.useContext(cardNumContaxt);
-  const { title, description, price, image, _id } = props;
-
-  const [quantity, setQuantity] = useState(0);
+  const { title, description,weight, price_1kg,price_500g, image , id} = props;
+  const [quantity, setQuantity] = useState(1);
   const [preview, setPreview] = useState(0);
   const ref = useRef(null);
+  const [weight1, setWeight1] = useState("1");
 
   const quantityHandler = (increment) => {
     if (increment) {
       setQuantity((prev) => (prev === 100 ? prev : prev + 1));
     } else {
-      setQuantity((prev) => (prev === 0 ? prev : prev - 1));
+      setQuantity((prev) => (prev === 1 ? prev : prev - 1));
     }
   };
 
@@ -67,10 +66,21 @@ const SingleProd = (props) => {
         <Images>
           <div className="displayed">
             <div className="desktop-carousel">
-              <img src={image1} alt="current image" className="current-image" />
+              <img
+                src={image}
+                alt="current image"
+                className="current-image"
+              />
             </div>
             <div className="mobile-carousel">
-              <img src={image1} alt="current image" className="current-image" />
+            <img
+                  src={image}
+                  alt="current image"
+                 
+                  className="current-image"
+                  
+                />
+           
             </div>
           </div>
         </Images>
@@ -84,7 +94,10 @@ const SingleProd = (props) => {
             <Price>
               <div className="total-price">
                 <div className="discouted-price">
-                  <p>{price}$</p>
+                  <p>
+                  {weight1==="1" ? price_1kg*quantity
+                 : price_500g*quantity}$
+                  </p>
                 </div>
               </div>
               {/* <div className="original-weight"> </div> */}
@@ -96,18 +109,21 @@ const SingleProd = (props) => {
                   </FormLabel>
                   <RadioGroup
                     aria-labelledby="demo-radio-buttons-group-label"
-                    defaultValue="1Kg"
+                    defaultValue="1"
                     name="radio-buttons-group"
                   >
                     <FormControlLabel
-                      value="1Kg"
+                      value="1" 
                       control={<Radio />}
                       label="1Kg"
+                      onChange={()=>setWeight1("1")}
                     />
                     <FormControlLabel
-                      value="1/2Kg"
+                      value="0.5"
                       control={<Radio />}
                       label="1/2 Kg"
+                      onChange={()=>setWeight1("0.5")}
+
                     />
                   </RadioGroup>
                 </FormControl>
