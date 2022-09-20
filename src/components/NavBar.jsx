@@ -1,5 +1,7 @@
 import { Badge } from "@material-ui/core";
 import { cardNumContaxt } from "../App";
+import logo from "../Assets/Images/esper-honey-logo.jpeg"
+import logo2 from "../Assets/Images/logo-bgTransp.png"
 
 import {
   MenuOutlined,
@@ -12,14 +14,19 @@ import styled from "styled-components";
 import { NavLink } from "react-router-dom";
 import { inBetween, mobile } from "../responsive";
 import { tablet } from "../responsive";
+
+
 const Container = styled.div`
   padding-top:10px;
-  height: 7vh;
+  height: 8vh;
   position: absolute;
   z-index: 1;
   width: 100%;
   color: white;
   background-color: rgba(0, 0, 0, 0.9);
+  
+  ${tablet({height:"5vh"})}
+  ${mobile ({height:"3vh"})}
 
   
 
@@ -78,7 +85,20 @@ const Logo = styled.h1`
   justify-content: center;
   display: flex;
   ${mobile({ fontSize: "10px" ,postion:"absolute", paddingLeft:"50px"})};
+${tablet({fontSize:"small"})}
+
 `;
+
+const LogoImage = styled.img `
+margin-left:5px;
+width:45px;
+height:45px;
+// ${mobile({width:"20%", height:"20%"})};
+${mobile({display:"none"})}
+${tablet({width:"10%", height:"10%"})}
+
+
+`
 const Right = styled.div`
   flex: 1;
   display: flex;
@@ -125,11 +145,13 @@ export default function Navbar() {
     <Container id="navbar_section">
       <Wrapper>
         <Left>
-          <Language>EN</Language>
+          <LogoImage src={logo2}/>
+          {/* <Language>EN</Language>
           <SearchContainer>
             <Input placeholder="Search" />
             <Search style={{ color: "grey", fontSize: 16 }} />
-          </SearchContainer>
+          </SearchContainer> */}
+
         </Left>
         <Center>
           <Logo>ESPER HONEY BEE</Logo>
@@ -180,7 +202,7 @@ export default function Navbar() {
       </Wrapper>
       <BurgerMenu>
         <button onClick={theFunction} style={{backgroundColor:"transparent", color:"white", border:"none"}}>
-          <MenuOutlined/>
+          <MenuOutlined style={{width:"200%", height:"200%"}}/>
         </button>
         <div className={showNav ? "show" : "dontshow"}>
           <ul>
