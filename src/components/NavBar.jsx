@@ -26,6 +26,7 @@ const Container = styled.div`
   background-color: rgba(0, 0, 0, 0.9);
   
   ${tablet({height:"5vh"})}
+  ${mobile ({height:"3vh"})}
 
   
 
