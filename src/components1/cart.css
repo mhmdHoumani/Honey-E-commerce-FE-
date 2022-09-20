@@ -128,13 +128,27 @@ body {
   /* position: absolute; */
   /* margin-top: 5rem; */
 }
+
+.main-cart-section{
+  position: relative;
+  margin-bottom: 5rem;  
+
+  animation: fadeIn 2.5s;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+ 
+}
+ 
 .main-cart-section h1 {
   font-style: normal;
   font-weight: bold;
   font-size: 3rem;
   text-transform: capitalize;
   color: rgba(41, 41, 41, 1);
-  margin-top: 5rem;
+  margin-top: 70rem; 
 }
 
 .main-cart-section .total-items {
@@ -173,6 +187,7 @@ body {
   display: grid;
   place-items: center;
   font-size: small;
+  margin-bottom:26rem;
 }
 
 .cart-items hr {
@@ -202,6 +217,7 @@ body {
   /* filter: drop-shadow(0rem 0.4rem 1rem #f1f7ff); */
   border-radius: 1rem;
   padding-right: 10px;
+  padding-top: 1rem;
    
 }
 
@@ -298,22 +314,26 @@ body {
 
 .card-total {
   width: 95%;
-  margin-top: 7rem;
+  position: relative;
+  margin-top:8rem;
   text-align: right;
 }
 
 .card-total h3 {
   font-style: 200;
-  font-size: 2.58rem;
+  font-size: 2rem;
   line-height: 3.2rem;
   text-transform: capitalize;
   color: #606166;
+  /* position: absolute;  */
+  /* padding-bottom: 50rem; */
+  /* margin-bottom: 55rem ; */
 }
 
 .card-total h3 span {
   font-style: normal;
   font-weight: bold;
-  font-size: 2.8rem;
+  font-size: 2rem;
   line-height: 3.2rem;
   text-transform: capitalize;
   color: #000000;
@@ -322,7 +342,7 @@ body {
 
 .card-total button {
   border: none;
-  font-size: 1.6rem;
+  font-size: 1rem;
   padding: 1rem 3rem;
   color: #fff;
   background-color: #ffb800;
@@ -350,7 +370,9 @@ body {
 .fa-minus {
   color: var(--icon-color);
 }
-
+/* .card-total{
+  margin-top: 8rem;
+} */
 .card-total button:hover {
   background-color: yellow;
 }
@@ -383,6 +405,7 @@ body {
     height: auto;
     display: grid;
     grid-template-columns: 1fr;
+    margin-top: 2rem;
   }
 
   .title,
@@ -390,12 +413,14 @@ body {
   .price,
   .remove-item {
     padding-left: 2rem;
+    padding-top: 1rem;
   }
 
   .items-info .product-img {
     width: 100%;
     text-align: center;
-    margin-bottom: 2rem;
+    padding-bottom: 2rem;
+  margin-top: 2rem;
   }
 
   .add-minus-quantity {
@@ -405,7 +430,8 @@ body {
 
   .price {
     justify-content: flex-start;
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
+    margin-bottom: 0rem;
   }
 
   .price h3::before {
@@ -418,7 +444,7 @@ body {
   }
 
   .card-total {
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
     text-align: center;
   }
 

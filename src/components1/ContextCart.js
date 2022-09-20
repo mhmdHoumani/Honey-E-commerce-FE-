@@ -21,7 +21,7 @@ const ContextCart = () => {
     var num = 0;
     for (let i = 0; i < item.length; i++) num += item[i].total_qty;
     console.log(num);
-    setCount(num);  
+    setCount(num);
   }, [item]);
   if (item.length === 0) {
     return (

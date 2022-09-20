@@ -19,7 +19,7 @@ const Items = ({ _id, description, title, avatar, total_price, qty }) => {
     <>
       <div className="items-info">
         <div className="product-img">
-          <img src={avatar} alt="iamge" />
+          <img src={avatar} alt={title} />
         </div>
 
         <div className="title">
