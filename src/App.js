@@ -5,7 +5,7 @@ import Navbar from "./components/NavBar";
 import Home from "./pages/home/Home";
 import AboutUs from "./pages/aboutUs/aboutUs";
 import Footer from "./components/footer/footer";
-import SignUp from "./pages/signUp/signUp.js";
+import SignUp from "./pages/signUp/signUp";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { Announcement } from "./components/Announcement";
 import { Product } from "./pages/Product";
@@ -19,7 +19,11 @@ export const cardNumContaxt = React.createContext()
 
 function App() {
   const [cardNum, setCardNum] = useState(0);
+  const user = localStorage.getItem('token');
+  console.log("localstorage: " , user);
   return (
+
+
     <cardNumContaxt.Provider value={{cardNum, setCardNum}}>
 
     <div className="App">
@@ -73,7 +77,7 @@ function App() {
             path="/signup"
             element={
               <> 
-                <signUp />
+                <SignUp />
               </>
             }
           />

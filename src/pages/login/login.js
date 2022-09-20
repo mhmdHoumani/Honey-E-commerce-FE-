@@ -19,10 +19,13 @@ const Login = (props) => {
       // I need to validate if the token is a valid
       if (token) {
         navigate("/");
+   window.location.reload();
+
       }
       else{
         // props.setLogin(true)
         navigate("/login");
+        
 
       }
     }, []);
@@ -53,8 +56,9 @@ const Login = (props) => {
         localStorage.setItem("token", JSON.stringify(result.token));
         localStorage.setItem("id", JSON.stringify(result._id));
        
-        props.setLogin(false);
+        // props.setLogin(false);
         navigate("/");
+        window.location.reload();
 
       }
     } catch (err) {
@@ -135,7 +139,7 @@ const Login = (props) => {
           </Button>
           <Button
             className="notMemberBtn"
-            href="#text-buttons"
+            href="/signup"
             sx={{ width: "12vw", letterSpacing: "2px", color: "var(--black)" }}
           >
             Not a member? Sign up.

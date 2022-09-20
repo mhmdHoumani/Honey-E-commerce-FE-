@@ -1,6 +1,5 @@
 import { Badge } from "@material-ui/core";
-import { cardNumContaxt } from "../App";
-import logo from "../Assets/Images/esper-honey-logo.jpeg";
+// import logo from "../Assets/Images/esper-honey-logo.jpeg";
 import logo2 from "../Assets/Images/logo-bgTransp.png";
 
 import {
@@ -9,9 +8,9 @@ import {
   Search,
   ShoppingCartOutlined,
 } from "@material-ui/icons";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import { inBetween, mobile } from "../responsive";
 import { tablet } from "../responsive";
 
@@ -100,6 +99,21 @@ const Right = styled.div`
   ${mobile({ flex: 2, justifyContent: "center" })};
 `;
 
+const Button = styled.button`
+  background-color: transparent;
+  border: none;
+  color: white;
+  font-weight: 600;
+
+  && a {
+    text-decoration: none;
+    color: white;
+  }
+  && a:hover {
+    color: #fbc41f;
+  }
+`;
+
 const MenuItem = styled.div`
   font-size: 14px;
   cursor: pointer;
@@ -112,7 +126,7 @@ const MenuItem = styled.div`
     // color: white;
   }
 
-  &:hover {
+  && NavLink:hover {
     color: #fbc41f;
     // background-color:#FBC41F;
     border-radius: 5px;
@@ -128,11 +142,21 @@ const BurgerMenu = styled.div`
   ${mobile({ display: "block" })}
 `;
 
+const user = localStorage.getItem("token");
+
 export default function Navbar() {
   const [showNav, setShowNav] = useState(false);
   let cart = JSON.parse(localStorage.getItem("cart_products")) || [];
   const theFunction = () => {
     setShowNav(!showNav);
+  };
+
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    localStorage.removeItem("token");
+    navigate("/", { replace: true });
+   window.location.reload();
   };
   return (
     <Container id="navbar_section">
@@ -151,8 +175,27 @@ export default function Navbar() {
         <Right>
           {/* <MenuItem>REGISTER</MenuItem> */}
           <MenuItem>
-            <PermIdentityOutlined />
-            {/* SIGN IN */}
+            {user && (
+              <div className="dropdown">
+                <button className="dropbtn">
+                  <PermIdentityOutlined />
+                </button>
+                <div className="dropdown-content">
+                  <a
+                    onClick={() => {
+                      handleLogout();
+                    }}
+                  >
+                    Log Out
+                  </a>
+                </div>
+              </div>
+            )}
+            {!user && (
+              <Button>
+                <a href="/login">SIGN IN</a>
+              </Button>
+            )}
           </MenuItem>
           <MenuItem>
             <NavLink style={{ textDecoration: "none", color: "white" }} to="/">
