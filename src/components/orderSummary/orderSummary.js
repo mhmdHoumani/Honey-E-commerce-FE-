@@ -1,11 +1,16 @@
-import React from "react";
+import React, { useState } from "react";
 import "./orderSummary.css";
 import { Button } from "@material-ui/core";
 import SendIcon from "@mui/icons-material/Send";
 import honeyJar from "../../Assets/Images/honeyJar.jpg";
+import NotificationBar from "../notificationBar/notificationBar";
+import { useNavigate } from "react-router-dom";
 
 
-const OrderSummary = () => {
+const OrderSummary = ({sendEmail}) => {
+  const navigate = useNavigate();
+  const [notify, setNotify] = useState(false);
+  
   return (
     <div className="orderSummaryWrapper">
       <div className="orderSummaryForm">
@@ -57,16 +62,22 @@ const OrderSummary = () => {
             <img src={honeyJar} alt="" />
           </div>
         </div>
-          <div className="lastSectionOS">
-            <div className="summaryTotal">Total: 50$</div>
-            <Button
-              className="purshaseBtnOS"
-              variant="contained"
-              endIcon={<SendIcon />}
-            >
-              Submit
-            </Button>
-          </div>
+        <div className="lastSectionOS">
+          <div className="summaryTotal">Total: 50$</div>
+          <Button
+            className="purshaseBtnOS"
+            variant="contained"
+            endIcon={<SendIcon />}
+            onClick={(e) => {
+              navigate("/");
+              sendEmail(e);
+              setNotify(true);
+            }}
+          >
+            Submit
+          </Button>
+          {/* {notify && <NotificationBar note={notify} message={"Order Sent!"} />} */}
+        </div>
       </div>
     </div>
   );

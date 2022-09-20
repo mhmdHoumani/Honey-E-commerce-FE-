@@ -17,7 +17,7 @@ function App() {
   return (
     <div className="App">
       <BrowserRouter>
-        {!login  && <Navbar />}
+        {!login && <Navbar />}
         <Routes>
           <Route exact path="/login" element={<><Login /></>}/>
           <Route path="/"element={<><Navbar /><Home /><Footer /></>}          />
@@ -25,7 +25,6 @@ function App() {
           <Route path="/product" element={<><Navbar /><Product /><Footer /></>}/>
           <Route path="/aboutUs"element={<><Navbar /><AboutUs /><Footer /></>}/>
           <Route path="/signup"element={<><SignUp /></>}/>
-          <Route path="/ordersummary"element={<><OrderSummary/></>}/>
           <Route path="/shippingdetails"element={<><ShippingDetails/></>}/>
         </Routes>
       </BrowserRouter>
