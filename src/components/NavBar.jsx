@@ -1,7 +1,7 @@
 import { Badge } from "@material-ui/core";
 import { cardNumContaxt } from "../App";
-import logo from "../Assets/Images/esper-honey-logo.jpeg"
-import logo2 from "../Assets/Images/logo-bgTransp.png"
+import logo from "../Assets/Images/esper-honey-logo.jpeg";
+import logo2 from "../Assets/Images/logo-bgTransp.png";
 
 import {
   MenuOutlined,
@@ -15,33 +15,28 @@ import { NavLink } from "react-router-dom";
 import { inBetween, mobile } from "../responsive";
 import { tablet } from "../responsive";
 
-
 const Container = styled.div`
-  padding-top:10px;
+  padding-top: 10px;
   height: 8vh;
   position: absolute;
   z-index: 1;
   width: 100%;
   color: white;
   background-color: rgba(0, 0, 0, 0.9);
-  
-  ${tablet({height:"5vh"})}
-  ${mobile ({height:"3vh"})}
 
-  
-
+  ${tablet({ height: "5vh" })}
+  ${mobile({ height: "3vh" })}
 `;
 const Wrapper = styled.div`
-width:auto;
+  width: auto;
   padding: 10px 20px;
   display: flex;
   align-items: center;
   justify-content: space-between;
   position: relative;
   ${mobile({ padding: "10px 0px" })};
-  ${tablet ({fontSize: "smaller"})}
-  ${inBetween ({width:"auto"})}
-
+  ${tablet({ fontSize: "smaller" })}
+  ${inBetween({ width: "auto" })}
 `;
 
 const Left = styled.div`
@@ -65,12 +60,11 @@ const SearchContainer = styled.div`
   background-color: transparent;
   ${mobile({ marginLeft: "0" })}
   ${mobile({ display: "none" })};
-  ${inBetween({display:"none"})}
-
+  ${inBetween({ display: "none" })}
 `;
 
 const Input = styled.input`
-  border: none;  
+  border: none;
   background-color: transparent;
   color: white;
   ${mobile({ width: "50px" })};
@@ -84,21 +78,20 @@ const Logo = styled.h1`
   font-size: 20px;
   justify-content: center;
   display: flex;
-  ${mobile({ fontSize: "10px" ,postion:"absolute", paddingLeft:"50px"})};
-${tablet({fontSize:"small"})}
-
+  ${mobile({ fontSize: "10px", postion: "absolute", paddingLeft: "50px" })};
+  ${tablet({ fontSize: "small" })}
 `;
 
-const LogoImage = styled.img `
-margin-left:5px;
-width:45px;
-height:45px;
-// ${mobile({width:"20%", height:"20%"})};
-${mobile({display:"none"})}
-${tablet({width:"10%", height:"10%"})}
-
-
-`
+const LogoImage = styled.img`
+  margin-left: 5px;
+  width: 45px;
+  height: 45px;
+  margin-top: 0;
+  position: absolute;
+  // ${mobile({ width: "20%", height: "20%" })};
+  ${mobile({ display: "none" })}
+  ${tablet({ width: "20px", height: "20px" })}
+`;
 const Right = styled.div`
   flex: 1;
   display: flex;
@@ -124,14 +117,14 @@ const MenuItem = styled.div`
     // background-color:#FBC41F;
     border-radius: 5px;
   }
-  // ${mobile({ fontSize: "8px", marginLeft: "2px", display:"none" })};
+  // ${mobile({ fontSize: "8px", marginLeft: "2px", display: "none" })};
   ${tablet({ fontSize: "smaller" })};
 `;
 
 const BurgerMenu = styled.div`
   display: none;
-  position:absolute;
-  top:25%;
+  position: absolute;
+  top: 25%;
   ${mobile({ display: "block" })}
 `;
 
@@ -145,13 +138,12 @@ export default function Navbar() {
     <Container id="navbar_section">
       <Wrapper>
         <Left>
-          <LogoImage src={logo2}/>
+          <LogoImage src={logo2} />
           {/* <Language>EN</Language>
           <SearchContainer>
             <Input placeholder="Search" />
             <Search style={{ color: "grey", fontSize: 16 }} />
           </SearchContainer> */}
-
         </Left>
         <Center>
           <Logo>ESPER HONEY BEE</Logo>
@@ -187,22 +179,24 @@ export default function Navbar() {
           </MenuItem>
 
           <MenuItem>
-            <Badge
-              badgeContent={cart.length}
-              color="yellow"
-            >
-              <NavLink
-            to="/cart"
-          >
-              <ShoppingCartOutlined />
+            <Badge badgeContent={cart.length} color="yellow">
+              <NavLink to="/cart">
+                <ShoppingCartOutlined />
               </NavLink>
             </Badge>
           </MenuItem>
         </Right>
       </Wrapper>
       <BurgerMenu>
-        <button onClick={theFunction} style={{backgroundColor:"transparent", color:"white", border:"none"}}>
-          <MenuOutlined style={{width:"200%", height:"200%"}}/>
+        <button
+          onClick={theFunction}
+          style={{
+            backgroundColor: "transparent",
+            color: "white",
+            border: "none",
+          }}
+        >
+          <MenuOutlined style={{ width: "200%", height: "200%" }} />
         </button>
         <div className={showNav ? "show" : "dontshow"}>
           <ul>
