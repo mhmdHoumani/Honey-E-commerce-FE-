@@ -4,7 +4,17 @@ import DeleteIcon from "@mui/icons-material/Delete";
 import IconButton from "@mui/material/IconButton";
 import Tooltip from "@mui/material/Tooltip";
 
-const Items = ({ _id, description, title, avatar, total_price, qty }) => {
+const Items = ({
+  _id,
+  description,
+  title,
+  avatar,
+  total_price,
+  qty_500,
+  qty_1,
+  price_1kg,
+  price_500g,
+}) => {
   const { removeItem, increment, decrement } = useContext(CartContext);
 
   const removeFromCart = (id) => {
@@ -17,44 +27,94 @@ const Items = ({ _id, description, title, avatar, total_price, qty }) => {
 
   return (
     <>
-      <div className="items-info">
-        <div className="product-img">
-          <img src={avatar} alt={title} />
-        </div>
+      {qty_1 != 0 && (
+        <>
+          <div className="items-info">
+            <div className="product-img">
+              <img src={avatar} alt={title} />
+            </div>
 
-        <div className="title">
-          <h2>{title}</h2>
-          <p>{description}</p>
-        </div>
+            <div className="title">
+              <h2>{title}</h2>
+              <p>{description}</p>
+            </div>
 
-        <div className="add-minus-quantity">
-          {<i
-            className="fas fa-minus minus"
-            style={{ color: "red" }}
-            onClick={() => decrement(_id)}
-          ></i>}
-          <input type="text" placeholder={qty} />
-          <i className="fas fa-plus add" onClick={() => increment(_id)}></i>
-        </div>
+            <div className="add-minus-quantity">
+              {
+                <i
+                  className="fas fa-minus minus"
+                  style={{ color: "red" }}
+                  onClick={() => decrement(_id)}
+                ></i>
+              }
+              <input type="text" placeholder={qty_1} />
+              <i className="fas fa-plus add" onClick={() => increment(_id)}></i>
+            </div>
 
-        <div className="price">
-          <h3>{total_price}$</h3>
-        </div>
+            <div className="price">
+              <h3>{qty_1 * price_1kg}$</h3>
+            </div>
 
-        <div className="remove-item">
-          {/* <i
+            <div className="remove-item">
+              {/* <i
             className="fas fa-trash-alt remove"
             onClick={() => removeFromCart(_id)}
           ></i> */}
-          <Tooltip onClick={() => removeFromCart(_id)}>
-            <IconButton>
-              <DeleteIcon />
-            </IconButton>
-          </Tooltip>
-        </div>
-      </div>
+              <Tooltip onClick={() => removeFromCart(_id)}>
+                <IconButton>
+                  <DeleteIcon />
+                </IconButton>
+              </Tooltip>
+            </div>
+          </div>
 
-      <hr />
+          <hr />
+        </>
+      )}
+      {qty_500 != 0 && (
+        <>
+          <div className="items-info">
+            <div className="product-img">
+              <img src={avatar} alt={title} />
+            </div>
+
+            <div className="title">
+              <h2>{title}</h2>
+              <p>{description}</p>
+            </div>
+
+            <div className="add-minus-quantity">
+              {
+                <i
+                  className="fas fa-minus minus"
+                  style={{ color: "red" }}
+                  onClick={() => decrement(_id)}
+                ></i>
+              }
+              <input type="text" placeholder={qty_500} />
+              <i className="fas fa-plus add" onClick={() => increment(_id)}></i>
+            </div>
+
+            <div className="price">
+              <h3>{qty_500 * price_500g}$</h3>
+            </div>
+
+            <div className="remove-item">
+              {/* <i
+            className="fas fa-trash-alt remove"
+            onClick={() => removeFromCart(_id)}
+          ></i> */}
+              <Tooltip onClick={() => removeFromCart(_id)}>
+                <IconButton>
+                  <DeleteIcon />
+                </IconButton>
+              </Tooltip>
+            </div>
+          </div>
+
+          <hr />
+        </>
+      )}
     </>
   );
 };

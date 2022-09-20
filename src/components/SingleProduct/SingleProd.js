@@ -9,8 +9,10 @@ import {
   RadioGroup,
   FormControlLabel,
   Radio,
+  Dialog,
+  AlertTitle,
 } from "@mui/material";
-
+import Alert from "@mui/material/Alert";
 //Images
 import minus from "../../Assets/Images/icon-minus.svg";
 import plus from "../../Assets/Images/icon-plus.svg";
@@ -19,14 +21,15 @@ import { cardNumContaxt } from "../../App";
 import { useLocation } from "react-router-dom";
 
 const SingleProd = (props) => {
-  const {state} = useLocation()
+  const { state } = useLocation();
   const { title, description, weight, price_1kg, price_500g, avatar, id } =
     props;
-    console.log("props",props)
+  console.log("props", props);
   const [quantity, setQuantity] = useState(1);
   const [preview, setPreview] = useState(0);
   const ref = useRef(null);
   const [weight1, setWeight1] = useState("1");
+  const [open, setOpen] = React.useState(false); // alert
 
   const quantityHandler = (increment) => {
     if (increment) {
@@ -37,13 +40,15 @@ const SingleProd = (props) => {
   };
 
   const addToCart = () => {
+    setOpen(!open);
+
     if (quantity != 0) {
       let products_array = JSON.parse(localStorage.getItem("cart_products"));
       if (products_array == null) products_array = [];
       let product_object = JSON.parse(JSON.stringify(props));
 
       let existing_quantity_500 = 0;
-      let existing_quantity_1 = 0; // 
+      let existing_quantity_1 = 0; //
 
       products_array.forEach(function (item) {
         if (item._id == props._id) {
@@ -52,8 +57,7 @@ const SingleProd = (props) => {
           if (weight1 == 1) {
             item.qty_1 += quantity;
             item.total_qty += quantity;
-            item.total_price +=
-               quantity * product_object.price_1kg;
+            item.total_price += quantity * product_object.price_1kg;
           } else {
             item.qty_500 += quantity;
             item.total_qty += quantity;
@@ -90,21 +94,10 @@ const SingleProd = (props) => {
         <Images>
           <div className="displayed">
             <div className="desktop-carousel">
-              <img
-                src={avatar}
-                alt="current image"
-                className="current-image"
-              />
+              <img src={avatar} alt="current image" className="current-image" />
             </div>
             <div className="mobile-carousel">
-            <img
-                  src={avatar}
-                  alt="current image"
-                 
-                  className="current-image"
-                  
-                />
-           
+              <img src={avatar} alt="current image" className="current-image" />
             </div>
           </div>
         </Images>
@@ -119,8 +112,10 @@ const SingleProd = (props) => {
               <div className="total-price">
                 <div className="discouted-price">
                   <p>
-                  {weight1==="1" ? price_1kg*quantity
-                 : price_500g*quantity}$
+                    {weight1 === "1"
+                      ? price_1kg * quantity
+                      : price_500g * quantity}
+                    $
                   </p>
                 </div>
               </div>
@@ -137,17 +132,16 @@ const SingleProd = (props) => {
                     name="radio-buttons-group"
                   >
                     <FormControlLabel
-                      value="1" 
+                      value="1"
                       control={<Radio />}
                       label="1Kg"
-                      onChange={()=>setWeight1("1")}
+                      onChange={() => setWeight1("1")}
                     />
                     <FormControlLabel
                       value="0.5"
                       control={<Radio />}
                       label="1/2 Kg"
-                      onChange={()=>setWeight1("0.5")}
-
+                      onChange={() => setWeight1("0.5")}
                     />
                   </RadioGroup>
                 </FormControl>
@@ -178,6 +172,11 @@ const SingleProd = (props) => {
               <button onClick={addToCart}>
                 <img src={cart} alt={cart} /> Add to cart
               </button>
+              <Dialog open={open}   onClose={()=>setOpen(false)} >
+                <Alert severity="success">
+                  This is a success alert — check it out!
+                </Alert>
+              </Dialog>
             </div>
           </Buttons>
         </Details>
