@@ -9,7 +9,7 @@ import { useNavigate } from "react-router-dom";
 
 const OrderSummary = ({sendEmail}) => {
   const navigate = useNavigate();
-  const [notify, setNotify] = useState(false);
+  const [note, setNote] = useState(false);
   
   return (
     <div className="orderSummaryWrapper">
@@ -71,12 +71,12 @@ const OrderSummary = ({sendEmail}) => {
             onClick={(e) => {
               navigate("/");
               sendEmail(e);
-              setNotify(true);
+              setNote(true);
             }}
           >
             Submit
           </Button>
-          {/* {notify && <NotificationBar note={notify} message={"Order Sent!"} />} */}
+          {note && <NotificationBar note={note} message={"Order Sent!"} />}
         </div>
       </div>
     </div>
