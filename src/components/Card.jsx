@@ -16,8 +16,8 @@ export const CardWrapper = styled.div`
   font-family: Quicksand, arial, sans-serif;
   box-shadow: 0 0 10px 0 #bbbbbb;
   border-radius: 7px;
-  ${mobile({ width: "300px",  margin: 'auto', })}
-  ${tablet({ width: "300px",  margin: 'auto' })}
+  ${mobile({ width: "300px" })}
+  ${tablet({ width: "300px"})}
 
 
 `;

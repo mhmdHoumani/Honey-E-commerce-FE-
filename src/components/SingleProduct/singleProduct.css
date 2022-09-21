@@ -16,3 +16,13 @@ color: yellow;
 .css-vqmohf-MuiButtonBase-root-MuiRadio-root.Mui-checked{
     color: black;
 }
+
+@media (max-width: 768px){
+    .sc-hTtwUo .dVWvjD {
+  
+        display: flex;
+        flex-direction: column;
+        align-items: baseline;
+      
+    }
+}
