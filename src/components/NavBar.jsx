@@ -156,7 +156,7 @@ export default function Navbar() {
   const handleLogout = () => {
     localStorage.removeItem("token");
     navigate("/", { replace: true });
-   window.location.reload();
+    window.location.reload();
   };
   return (
     <Container id="navbar_section">
@@ -252,9 +252,23 @@ export default function Navbar() {
             <li>
               <a href="/aboutUs">ABOUT US</a>
             </li>
-            <li>
-              <a href="#">Profile</a>
-            </li>
+            {user && (
+              <li>
+                <a
+                  href="/"
+                  onClick={() => {
+                    handleLogout();
+                  }}
+                >
+                  Log Out
+                </a>
+              </li>
+            )}
+            {!user && (
+              <li>
+                <a href="/login">Sign In</a>
+              </li>
+            )}
           </ul>
         </div>
       </BurgerMenu>
