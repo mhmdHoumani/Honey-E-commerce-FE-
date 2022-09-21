@@ -47,7 +47,7 @@ const Items = ({
                   onClick={() => decrement(_id)}
                 ></i>
               }
-              <input type="text" placeholder={qty_1} />
+              <input style={{color:"black", fontSize:"30px", fontWeight:"600"}} type="text" placeholder={qty_1} />
               <i className="fas fa-plus add" onClick={() => increment(_id)}></i>
             </div>
 
@@ -91,7 +91,7 @@ const Items = ({
                   onClick={() => decrement(_id)}
                 ></i>
               }
-              <input type="text" placeholder={qty_500} />
+              <input type="text" placeholder={qty_500}  style={{color:"black", fontSize:"30px", fontWeight:"600"}} />
               <i className="fas fa-plus add" onClick={() => increment(_id)}></i>
             </div>
 

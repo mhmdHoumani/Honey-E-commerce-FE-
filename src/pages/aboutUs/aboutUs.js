@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./aboutUs.css";
 import {
   CRow,
@@ -13,10 +13,22 @@ import {
 import '@coreui/coreui/dist/css/coreui.min.css'
 import batata from "../../Assets/Images/batata.jpg";
 import batata2 from "../../Assets/Images/batata2.jpg";
+import { Loading } from "../../components/loading page/Loading";
 
 
 const AboutUs = () => {
+  const [loading, setLoading] = useState(false);
+  useEffect(() => {
+    setLoading(true);
+    setTimeout(() => {
+      setLoading(false);
+    }, 1500);
+  }, []);
   return (
+    <>
+    {loading ? <Loading/> : (
+
+ 
     <div id="about">
       <div className="banner">
         <h1>About Us</h1>
@@ -84,6 +96,8 @@ const AboutUs = () => {
         </CRow>
       </div>
     </div>
+       )}
+       </>
   );
 };
 
