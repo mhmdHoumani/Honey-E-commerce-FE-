@@ -5,7 +5,7 @@ import { CartContext } from "./Cart";
 import Navbar from "../components/NavBar";
 import { navigate, useNavigate } from "react-router-dom";
 
-const ContextCart = () => {
+const Cart = () => {
   const { item, clearCart, totalItem, totalAmount } = useContext(CartContext);
   let cart = JSON.parse(localStorage.getItem("cart_products")) || [];
   // console.log(cart[0].total_qty);
@@ -38,7 +38,6 @@ const ContextCart = () => {
               {/* <button onClick={handleClick}><h3>continue shopping</h3> </button> */}
             </button>
           </header>
-
           <section className="main-cart-section-cart">
             <h1>shopping Cart</h1>
             <p className="total-items-cart">
@@ -86,7 +85,7 @@ const ContextCart = () => {
   );
 };
 
-export default ContextCart;
+export default Cart;
 
 // import React, { useContext } from "react";
 // import { Scrollbars } from "react-custom-scrollbars-2";
