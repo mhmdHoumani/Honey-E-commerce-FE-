@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useLocation } from 'react-router-dom';
+import { Loading } from "../../components/loading page/Loading";
 import SingleProd from "../../components/SingleProduct/SingleProd";
 import "./singleProduct.css";
 export const Single = () => {
@@ -8,7 +9,9 @@ export const Single = () => {
   let {title, description,price_1kg,price_500g,_id,avatar}=location.state
   return (
     <>
+    {!location.state ? <Loading/>:
     <SingleProd title={title} description={description} price_1kg={price_1kg} price_500g={price_500g} avatar={avatar}  _id={_id}/>
+    }
     </>
     
   );

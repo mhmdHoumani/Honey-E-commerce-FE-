@@ -14,107 +14,103 @@ import { Single } from "./pages/SingleProduct/single";
 import SingleProd from "./components/SingleProduct/SingleProd";
 
 import Cart from "./components1/Cart";
+import { Loading } from "./components/loading page/Loading";
 
-export const cardNumContaxt = React.createContext()
+export const cardNumContaxt = React.createContext();
 
 function App() {
   const [cardNum, setCardNum] = useState(0);
-  const user = localStorage.getItem('token');
-  console.log("localstorage: " , user);
+  const user = localStorage.getItem("token");
+  console.log("localstorage: ", user);
   return (
+    <cardNumContaxt.Provider value={{ cardNum, setCardNum }}>
+      <div className="App">
+        <BrowserRouter>
+          <Routes>
+            <Route
+              exact
+              path="/login"
+              element={
+                <>
+                  <Login />
+                </>
+              }
+            />
 
+            <Route
+              path="/loading"
+              element={
+                <>
+                  <Loading />
+                </>
+              }
+            />
+            <Route
+              path="/"
+              element={
+                <>
+                  <Navbar />
+                  <Home />
+                  <Footer />
+                </>
+              }
+            />
+            <Route path="*" element={<Navigate to="/" replace />} />
+            <Route
+              path="/product"
+              element={
+                <>
+                  <Navbar />
+                  <Product />
+                  <Footer />
+                </>
+              }
+            />
 
-    <cardNumContaxt.Provider value={{cardNum, setCardNum}}>
+            <Route
+              path="/aboutUs"
+              element={
+                <>
+                  <Navbar />
+                  <AboutUs />
+                  <Footer />
+                </>
+              }
+            />
+            <Route
+              path="/signup"
+              element={
+                <>
+                  <SignUp />
+                </>
+              }
+            />
 
-    <div className="App">
-      <BrowserRouter>
+            <Route
+              path="/product-details"
+              element={
+                <>
+                  <Navbar />
+                  <Single />
+                  <Footer />
+                </>
+              }
+            />
 
-
-        <Routes>
-          
-          <Route
-            exact
-            path="/login"
-            element={
-              <>
-                <Login />
-              </>
-            }
-          />
-          <Route
-            path="/"
-            element={
-              <>
-                <Navbar />
-                <Home />
-                <Footer />
-              </>
-            }
-          />
-          <Route path="*" element={<Navigate to="/" replace />} />
-          <Route
-            path="/product"
-            element={
-              <>
-                <Navbar />
-                <Product />
-                <Footer />
-              </>
-            }
-          />
-          
-          <Route
-            path="/aboutUs"
-            element={
-              <>
-                <Navbar />
-                <AboutUs />
-                <Footer />
-              </>
-            }
-          />
-          <Route
-            path="/signup"
-            element={
-              <> 
-                <SignUp />
-              </>
-            }
-          />
-      
-        <Route
-            path="/product-details"
-            element={
-              <>
-               <Navbar />
-              <Single />
-              <Footer/>
-              </>
-             
-              
-            }
-          />
-          
-
-
-
-          <Route
-            path="/cart"
-            element={
-              <>
-               <Navbar />
-                <Cart />
-              {/* <Footer/> */}
-
-              </>
-            }
-          />
-        </Routes>
-
-      </BrowserRouter>
-    </div>
+            <Route
+              path="/cart"
+              element={
+                <>
+                  <Navbar />
+                  <Cart />
+                  {/* <Footer/> */}
+                </>
+              }
+            />
+          </Routes>
+        </BrowserRouter>
+      </div>
     </cardNumContaxt.Provider>
-
   );
 }
 export default App;
