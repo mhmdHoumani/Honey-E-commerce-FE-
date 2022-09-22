@@ -9,13 +9,12 @@ const Items = ({
   description,
   title,
   avatar,
-  total_price,
   qty_500,
   qty_1,
   price_1kg,
   price_500g,
 }) => {
-  const { removeItem, increment, decrement } = useContext(CartContext);
+  const { increment, decrement } = useContext(CartContext);
 
   const removeFromCart = (id) => {
     let products_array = JSON.parse(localStorage.getItem("cart_products"));
@@ -47,7 +46,7 @@ const Items = ({
                   onClick={() => decrement(_id)}
                 ></i>
               }
-              <input type="text" placeholder={qty_1} />
+              <input style={{color:"black", fontSize:"30px", fontWeight:"600"}} type="text" placeholder={qty_1} />
               <i className="fas fa-plus add" onClick={() => increment(_id)}></i>
             </div>
 
@@ -91,7 +90,7 @@ const Items = ({
                   onClick={() => decrement(_id)}
                 ></i>
               }
-              <input type="text" placeholder={qty_500} />
+              <input type="text" placeholder={qty_500}  style={{color:"black", fontSize:"30px", fontWeight:"600"}} />
               <i className="fas fa-plus add" onClick={() => increment(_id)}></i>
             </div>
 
@@ -107,7 +106,7 @@ const Items = ({
               <Tooltip onClick={() => removeFromCart(_id)}>
                 <IconButton>
                   <DeleteIcon />
-                </IconButton>
+                </IconButton> 
               </Tooltip>
             </div>
           </div>
