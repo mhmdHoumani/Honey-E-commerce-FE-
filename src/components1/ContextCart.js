@@ -6,12 +6,17 @@ import Navbar from "../components/NavBar";
 import { navigate, useNavigate } from "react-router-dom";
 
 const Cart = () => {
-  const { item, clearCart, totalItem, totalAmount } = useContext(CartContext);
+  const { item, totalAmount } = useContext(CartContext);
   let cart = JSON.parse(localStorage.getItem("cart_products")) || [];
   // console.log(cart[0].total_qty);
   const [count, setCount] = useState(0);
 
   const navigate = useNavigate();
+
+  const clearAll = () => {
+    localStorage.removeItem("cart_products");
+    // console.log("CARTTTTT:", localStorage.removeItem("cart_products"));
+  };
 
   const handleClick = () => {
     navigate("/product", { replace: true });
@@ -51,8 +56,7 @@ const Cart = () => {
   }
 
   return (
-    < >
-
+    <>
       {/* <Navbar /> */}
 
       <section className="main-cart-section">
@@ -77,7 +81,7 @@ const Cart = () => {
             Cart Total : <span>{totalAmount}$</span>
           </h3>
           <button>checkout</button>
-          <button className="clear-cart" onClick={clearCart}>
+          <button className="clear-cart" onClick={clearAll}>
             Clear Cart
           </button>
         </div>
@@ -85,7 +89,5 @@ const Cart = () => {
     </>
   );
 };
-
-
 
 export default Cart;
