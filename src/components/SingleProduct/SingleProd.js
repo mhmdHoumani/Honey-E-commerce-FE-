@@ -121,7 +121,7 @@ const SingleProd = (props) => {
               </div>
               {/* <div className="original-weight"> </div> */}
 
-              <radioWrapper>
+              <radioWrapper className="radio_wrapper">
                 <FormControl>
                   <FormLabel id="demo-radio-buttons-group-label">
                     Weight
@@ -475,5 +475,7 @@ const Controls = styled.div`
 const radioWrapper = styled.div`
   display: flex;
   background-color: red;
+  
+  }
 `;
 export default SingleProd;
