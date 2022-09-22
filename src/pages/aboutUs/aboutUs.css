@@ -9,8 +9,8 @@
   animation: load 1s ease-in-out 1;
 }
 .banner h1 {
-  color: white;
-  padding-top: 50px;
+  color: back;
+  padding-top: 100px;
   /* position: absolute; */
   font-size: 64px;
   left: 20%;

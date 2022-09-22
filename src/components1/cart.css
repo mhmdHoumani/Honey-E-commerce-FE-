@@ -129,10 +129,11 @@ body {
 }
 
 .main-cart-section {
-  /* position: absolute; */
+  /* position: relative; */
   /* margin-bottom: 10rem;   */
-  padding-bottom: 30rem;
-
+  /* padding-bottom: 30rem; */
+  padding-top:650px;
+  margin: auto;
   animation: fadeIn 2.5s;
   display: flex;
   flex-direction: column;
@@ -146,8 +147,15 @@ body {
   font-weight: bold;
   font-size: 3rem;
   text-transform: capitalize;
-  color: rgba(41, 41, 41, 1);
-  margin-top: 70rem;
+  color: back;
+  letter-spacing: 8px;
+  text-shadow: 4px 4px 2px rgba(150, 150, 150, 1);
+  animation: load 1s ease-in-out 1;
+  /* margin-top: 70rem; */
+  letter-spacing: 8px;
+  animation: fadeIn 2.5s;
+  /* position: absolute; */
+  /* padding-top: 80px; */
 }
 
 .main-cart-section .total-items {
@@ -156,7 +164,9 @@ body {
   font-size: 1.8rem;
   text-transform: capitalize;
   color: var(--main-color);
-  margin-bottom: 5rem;
+  /* margin-bottom: 5rem; */
+  /* position: relative; */
+  /* padding-top: 20px; */
 }
 
 .total-items-count {
@@ -164,9 +174,9 @@ body {
   /* color: var(--yellow); */
   background-color: #ffb800;
   border: solid 1px black;
-  padding: 0.42rem 0.7rem 0.42rem 0.7rem;
+  /* padding: 0.42rem 0.7rem 0.42rem 0.7rem; */
   border-radius: 50px;
-  margin-right: 10px;
+  /* margin-right: 10px; */
 }
 
 /* cart main div start  */
@@ -174,11 +184,12 @@ body {
 .main-cart-section .cart-items {
   width: 65%;
   height: 62rem;
-  background: linear-gradient(
+  /* background: linear-gradient(
     103.49deg,
     #ffb800 -28.13%,
     rgba(242, 247, 255, 0.5) 116.84%
-  );
+  ); */
+  background-color: #ffb800;
   box-shadow: rgba(0, 0, 0, 0.08) 0rem 0.4rem 1.2rem;
   border-radius: 2rem;
   margin: auto;
