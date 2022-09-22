@@ -80,7 +80,7 @@ const Cart = () => {
           <h3>
             Cart Total : <span>{totalAmount}$</span>
           </h3>
-          <button>checkout</button>
+          <button onClick={()=> navigate("/delivery-details",{state:{item:item,  total:totalAmount}})} >checkout</button>
           <button className="clear-cart" onClick={clearAll}>
             Clear Cart
           </button>

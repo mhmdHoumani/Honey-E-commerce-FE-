@@ -1,0 +1,90 @@
+.wrapperForm {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.orderSummaryFormInfo {
+  animation: loading 0.25s ease-in-out 1;
+  box-shadow: 10px -5px 400px 200px rgba(0, 0, 0, 0.3);
+  -webkit-box-shadow: 10px -5px 400px 200px rgba(0, 0, 0, 0.3);
+  -moz-box-shadow: 10px -5px 400px 200px rgba(0, 0, 0, 0.3);
+  width: 33rem;
+  height: 75%;
+  background-color: white;
+  padding: 30px 25px 25px 25px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.navigate {
+  animation: loading 0.5s ease-in-out 1;
+  font-size: 16px;
+  color: black;
+  margin-bottom: 30px;
+  text-decoration: none;
+  font-weight: 500;
+}
+.navigate::before {
+  content: "<";
+}
+.navigate:hover {
+  text-decoration: underline;
+}
+.shipD {
+  animation: loading 0.5s ease-in-out 1;
+}
+.input1F {
+  animation: loading 0.75s ease-in-out 1;
+}
+.input2F {
+  animation: loading 1s ease-in-out 1;
+}
+.input3F {
+  animation: loading 1.25s ease-in-out 1;
+}
+.input4F {
+  animation: loading 1.5s ease-in-out 1;
+}
+.input5F {
+  animation: loading 1.75s ease-in-out 1;
+}
+.lastSection {
+  display: flex;
+  justify-content: center;
+}
+.purshaseBtn {
+  border-radius: 25px;
+  background-color: var(--yellow);
+  letter-spacing: 3px;
+  cursor: pointer;
+  animation: loading 2s ease-in-out 1;
+  border: 0ch;
+  height: 3rem;
+  width: 10rem;
+  padding-bottom: 0.1 rem;
+  font-weight: 1000;
+  transition: all 0.25s cubic-bezier(0.02, 0.01, 0.47, 1);
+}
+.purshaseBtn:hover {
+  box-shadow: 0 15px 15px rgba(0, 0, 0, 0.16);
+  transform: translate(0, -5px);
+}
+@media (max-width: 1491px) {
+  .orderSummaryFormInfo {
+    height: 80%;
+  }
+}
+@media (max-width: 576px) {
+  .orderSummaryFormInfo {
+    transform: scale(0.9);
+    height: 110%;
+    overflow-x: hidden;
+    overflow-y: hidden;
+  }
+}
+@media (max-width: 285px) {
+  .orderSummaryFormInfo {
+    height: 110%;
+  }
+}
