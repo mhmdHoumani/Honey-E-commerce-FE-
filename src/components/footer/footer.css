@@ -33,7 +33,8 @@
 .LOGO_div img{
   object-fit:fill;
     width: 45px;
-    height: 45px;
+    height: 40px;
+    margin-left:5%;
   
 
 }
