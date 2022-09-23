@@ -38,7 +38,7 @@ const Items = ({
               <p>{description}</p>
             </div>
 
-            {/* <div className="add-minus-quantity">
+            <div className="add-minus-quantity">
               {
                 <i
                   className="fas fa-minus minus"
@@ -46,19 +46,20 @@ const Items = ({
                   onClick={() => decrement(_id)}
                 ></i>
               }
-              <input style={{color:"black", fontSize:"30px", fontWeight:"600"}} type="text" placeholder={qty_1} />
+              <p>{qty_1}</p>
+              {/* <input style={{color:"black", fontSize:"30px", fontWeight:"600"}} type="text" placeholder={qty_1} /> */}
               <i className="fas fa-plus add" onClick={() => increment(_id)}></i>
-            </div> */}
+            </div>
 
             <div className="price">
               <h3>{qty_1 * price_1kg}$</h3>
             </div>
 
             <div className="remove-item">
-              {/* <i
+              <i
             className="fas fa-trash-alt remove"
             onClick={() => removeFromCart(_id)}
-          ></i> */}
+          ></i>
               <Tooltip onClick={() => removeFromCart(_id)}>
                 <IconButton>
                   <DeleteIcon />
@@ -83,15 +84,16 @@ const Items = ({
             </div>
 
             <div className="add-minus-quantity">
-              {
+              {/* {
                 <i
                   className="fas fa-minus minus"
                   style={{ color: "red" }}
                   onClick={() => decrement(_id)}
                 ></i>
-              }
-              <input type="text" placeholder={qty_500}  style={{color:"black", fontSize:"30px", fontWeight:"600"}} />
-              <i className="fas fa-plus add" onClick={() => increment(_id)}></i>
+              } */}
+             <p>{qty_500}</p>
+              {/* <input type="text" placeholder={qty_500}  style={{color:"black", fontSize:"30px", fontWeight:"600"}} /> */}
+              {/* <i className="fas fa-plus add" onClick={() => increment(_id)}></i> */}
             </div>
 
             <div className="price">
@@ -99,10 +101,10 @@ const Items = ({
             </div>
 
             <div className="remove-item">
-              {/* <i
+              <i
             className="fas fa-trash-alt remove"
             onClick={() => removeFromCart(_id)}
-          ></i> */}
+          ></i>
               <Tooltip onClick={() => removeFromCart(_id)}>
                 <IconButton>
                   <DeleteIcon />
