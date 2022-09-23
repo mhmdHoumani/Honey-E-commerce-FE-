@@ -16,6 +16,7 @@ const Cart = () => {
 
   const clearAll = () => {
     localStorage.removeItem("cart_products");
+    window.location.reload();
     // console.log("CARTTTTT:", localStorage.removeItem("cart_products"));
   };
 
