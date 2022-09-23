@@ -22,10 +22,29 @@
     align-items: center;
 }
 .LOGO_div{
-    /* justify-content: center; */
+    width: 45px;
+    height: 45px;
+    background-color: rgba(0, 0, 0, 0.7);
+    border:0.5px solid rgba(0, 0, 0, 0.22);
+    border-radius: 50px;
+    box-shadow: 12px 1px #fbc41f;
+/* filter: blur(1rem); */
+}
+.LOGO_div img{
+  object-fit:fill;
+    width: 45px;
+    height: 45px;
+  
+
+}
+.test{
+    display: flex;
+    align-items: center;
 }
 
 .List_div{
+    font-family:  'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif !important;
+    font-weight: bolder !important;
     display: flex;
     min-width: 20%;
     justify-content: space-around;
@@ -43,8 +62,16 @@
 
 .buttom_footer{
 border-top: 1px solid #e4e4e4;
+display: flex;
+align-items: center;
+justify-content: space-evenly;
 
 
+
+}
+.buttom_footer span::before{
+    content:" ...";
+    visibility: hidden;
 }
 .button_container{
     display:flex;
@@ -64,7 +91,7 @@ border-top: 1px solid #e4e4e4;
     font-size: 12px;
     font-style: normal;
     font-weight: 400;
-    margin: 10px 0 0;
+   
     outline: none;
     appearance: none;
     -webkit-appearance: none;
