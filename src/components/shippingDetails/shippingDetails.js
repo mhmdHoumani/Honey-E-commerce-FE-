@@ -1,15 +1,16 @@
-import React, {  useState, useEffect } from "react";
+import React, {  useState } from "react";
 import TextField from "@mui/material/TextField";
 import "./shippingDetails.css";
-import { useNavigate,useLocation } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import emailjs from "@emailjs/browser";
 import OrderSummary from "../orderSummary/orderSummary";
 
 const ShippingDetails = () => {
-
+  
+  const {state}=useLocation();
   const [open,setOpen]=useState(true)
   const [form, setForm] = useState(null);
-  const navigate = useNavigate();
+
   const [notify, setNotify] = useState(false);
   const [inputs, setInputs] = useState({
     user_city: "",
@@ -17,11 +18,11 @@ const ShippingDetails = () => {
     user_building: "",
     user_phone: "",
     user_details: "",
+    // order_title:state.item.map(prod=>prod.title).join('/'),
   });
-  const {state}=useLocation();
   
-
-  console.log(state);
+console.log("INPUTS", inputs);
+  // console.log(state);
   // console.log(stateT);
 
   const handleChange = (e)=>{
@@ -90,6 +91,24 @@ const ShippingDetails = () => {
           required
           onChange={handleChange}
         />
+
+{/* <TextField
+          hidden
+          className="input1F"
+          id="outlined-multiline-flexible"
+          label="batata"
+          name="order_title"
+          value={state.item.map(prod=>prod.title).join('/')}
+          multiline
+          maxRows={2}
+          required
+          onChange={handleChange}
+        /> */}
+
+
+
+
+        
         <TextField
           className="input2F"
           id="outlined-multiline-flexible"

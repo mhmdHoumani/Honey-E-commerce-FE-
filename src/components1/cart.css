@@ -353,7 +353,7 @@ body {
   font-size: 1rem;
   padding: 1rem 3rem;
   color: #fff;
-  background-color: #ffb800;
+  background-color: #fcbe23;
   text-transform: uppercase;
   margin-top: 1rem;
   border-radius: 0.5rem;
@@ -371,7 +371,7 @@ body {
 }
 
 .fa-minus:hover {
-  color: #ffb800;
+  color: var(--yellow);
 }
 
 .fa-plus,
@@ -382,7 +382,7 @@ body {
   margin-top: 8rem;
 } */
 .card-total button:hover {
-  background-color: yellow;
+  background-color:var(--yellow);
 }
 
 .card-total .clear-cart {
