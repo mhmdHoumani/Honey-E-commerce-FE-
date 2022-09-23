@@ -223,8 +223,8 @@ export default function Navbar() {
 
           <MenuItem>
             <Badge badgeContent={cart.length} color="yellow">
-              <NavLink to="/cart">
-                <ShoppingCartOutlined />
+              <NavLink to="/cart" >
+                <ShoppingCartOutlined style={{color:"#fbc41f"}}  />
               </NavLink>
             </Badge>
           </MenuItem>

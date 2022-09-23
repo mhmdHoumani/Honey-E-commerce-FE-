@@ -16,6 +16,7 @@ const Cart = () => {
 
   const clearAll = () => {
     localStorage.removeItem("cart_products");
+    window.location.reload();
     // console.log("CARTTTTT:", localStorage.removeItem("cart_products"));
   };
 
@@ -58,7 +59,7 @@ const Cart = () => {
           <section className="main-cart-section-cart">
             <h1>shopping Cart</h1>
             <p className="total-items-cart">
-              you have <span className="total-items-count">0 </span> items in
+              you have <span className="total-items-count_cart">0 </span> items in
               shopping cart
             </p>
           </section>

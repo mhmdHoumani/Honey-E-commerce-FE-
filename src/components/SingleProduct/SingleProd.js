@@ -174,7 +174,7 @@ const SingleProd = (props) => {
               </button>
               <Dialog open={open}   onClose={()=>setOpen(false)} >
                 <Alert severity="success">
-                  This is a success alert — check it out!
+                  Item Added to your Cart!
                 </Alert>
               </Dialog>
             </div>
