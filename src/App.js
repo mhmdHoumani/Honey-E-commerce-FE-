@@ -6,6 +6,8 @@ import Home from "./pages/home/Home";
 import AboutUs from "./pages/aboutUs/aboutUs";
 import Footer from "./components/footer/footer";
 import SignUp from "./pages/signUp/signUp";
+import OrderSummary from "./components/orderSummary/orderSummary";
+import DeilveryDetails from "./components/shippingDetails/shippingDetails";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { Announcement } from "./components/Announcement";
 import { Product } from "./pages/Product";
@@ -109,16 +111,27 @@ function App() {
               }
             />
 
-<Route
-              path="/list"
+            <Route
+              path="/delivery-details"
               element={
                 <>
-                 <List />
+                  <Navbar />
+                  <DeilveryDetails />
+                  <Footer />
                 </>
               }
             />
 
-
+{/* <Route
+              path="/orderSummary"
+              element={
+                <>
+                  <Navbar />
+                  <OrderSummary />
+                  <Footer />
+                </>
+              }
+            /> */}
           </Routes>
         </BrowserRouter>
       </div>

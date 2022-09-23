@@ -36,7 +36,7 @@ export const CardHeading = styled.h1`
 export const CardImage = styled.img`
   width: 384px;
   height: 384px;
-  object-fit: contain;
+  object-fit: cover;
   ${mobile({ width: "200px", height: "200px"})}
   ${tablet({ width: "290px", height: "250px"})}
 

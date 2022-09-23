@@ -132,7 +132,7 @@ body {
   /* position: relative; */
   /* margin-bottom: 10rem;   */
   /* padding-bottom: 30rem; */
-  padding-top: 650px;
+  padding-top:450px;
   margin: auto;
   animation: fadeIn 2.5s;
   display: flex;
@@ -171,13 +171,13 @@ body {
 }
 
 .total-items-count {
-  font-weight: bold;
+  font-weight:bolder;
   /* color: var(--yellow); */
-  background-color: #ffb800;
-  border: solid 1.5px black;
-  padding: 0.42rem 0.5rem 0.43rem 0.5rem;
- margin-right: 1rem;
-  /* border-radius: 50px; */
+  /* background-color: #ffb800; */
+  /* border: solid 1px black; */
+  color:#000000;
+  /* padding: 0.42rem 0.7rem 0.42rem 0.7rem; */
+  border-radius: 50px;
   /* margin-right: 10px; */
 }
 
@@ -358,7 +358,7 @@ body {
   font-size: 1rem;
   padding: 1rem 3rem;
   color: #fff;
-  background-color: #8B8000;
+  background-color: #fcbe23;
   text-transform: uppercase;
   margin-top: 1rem;
   border-radius: 0.5rem;
@@ -376,7 +376,7 @@ body {
 }
 
 .fa-minus:hover {
-  color: #ffb800;
+  color: var(--yellow);
 }
 
 .fa-plus,
@@ -387,7 +387,7 @@ body {
   margin-top: 8rem;
 } */
 .card-total button:hover {
-  background-color: #ffb800;
+  background-color:var(--yellow);
 }
 
 .card-total .clear-cart {

@@ -25,20 +25,20 @@ export const sliderItems = [
 export const categories = [
   {
     id: 1,
-    img: "20220628_132753 (1)",
-    title: "First Category",
+    img: "HoneyJars2",
+    title: "Our Honey",
     cat: "honey",
   },
   {
     id: 2,
     img: "20220628_135945",
-    title: "Second Category",
-    cat: "liquid",
+    title: "Honey Comb",
+    cat: "comb",
   },
   {
     id: 3,
-    img: "honeyJar",
-    title: "Third Category",
+    img: "BeesHives",
+    title: "Wooden Hives",
     cat: "hives",
   },
 ];
