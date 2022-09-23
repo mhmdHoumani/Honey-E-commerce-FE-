@@ -31,7 +31,7 @@ const AboutUs = () => {
  
     <div id="about">
       <div className="banner">
-        <h1>About Us</h1>
+        {/* <h1>About Us</h1> */}
       </div>
       <div className="body-aboutUs">
         <CRow xs={{ cols: 1, gutter: 4 }} md={{ cols: 2 }}>
