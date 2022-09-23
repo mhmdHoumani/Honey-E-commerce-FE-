@@ -13,6 +13,7 @@ const Cart = () => {
 
   const navigate = useNavigate();
 
+
   const clearAll = () => {
     localStorage.removeItem("cart_products");
     // console.log("CARTTTTT:", localStorage.removeItem("cart_products"));
@@ -21,6 +22,17 @@ const Cart = () => {
   const handleClick = () => {
     navigate("/product", { replace: true });
   };
+
+  const handleCheckout = () => {
+    if (localStorage.getItem("token")) {
+      navigate("/delivery-details", {
+        state: { item: item, total: totalAmount },
+      });
+    } else {
+      navigate("/login");
+    }
+  };
+  
 
   useEffect(() => {
     var num = 0;
@@ -80,7 +92,17 @@ const Cart = () => {
           <h3>
             Cart Total : <span>{totalAmount}$</span>
           </h3>
-          <button onClick={()=> navigate("/delivery-details",{state:{item:item,  total:totalAmount}})} >checkout</button>
+          <button
+            // onClick={() =>
+            //   navigate("/delivery-details", {
+            //     state: { item: item, total: totalAmount },
+            //   })
+            // }
+
+            onClick={handleCheckout}
+          >
+            checkout
+          </button>
           <button className="clear-cart" onClick={clearAll}>
             Clear Cart
           </button>
