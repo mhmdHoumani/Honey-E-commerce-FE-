@@ -98,8 +98,8 @@ justify-content: space-evenly;
     line-height: 24px;
     border-radius: 50px;
     padding: 15px 35px 15px 35px;
-    color: black;
-    background-color: #fbc41f;
+    color: var(--black);
+    background-color: var(--yellow);
     text-transform: uppercase;
 }
 .button_footer:hover{
