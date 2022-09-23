@@ -17,7 +17,7 @@ import { tablet } from "../responsive";
 const Container = styled.div`
   padding-top: 10px;
   height: 8vh;
-  position: absolute;
+  // position: absolute;
   z-index: 1;
   width: 100%;
   color: white;
@@ -28,7 +28,7 @@ const Container = styled.div`
 `;
 const Wrapper = styled.div`
   width: auto;
-  padding: 10px 20px;
+  padding: 0px 20px;
   display: flex;
   align-items: center;
   justify-content: space-between;
