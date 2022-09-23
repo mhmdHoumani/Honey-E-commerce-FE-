@@ -11,7 +11,7 @@ const Items = ({
   avatar,
   qty_500,
   qty_1,
-  price_1kg,
+  price_1kg, 
   price_500g,
 }) => {
   const { increment, decrement } = useContext(CartContext);
@@ -38,7 +38,7 @@ const Items = ({
               <p>{description}</p>
             </div>
 
-            <div className="add-minus-quantity">
+            {/* <div className="add-minus-quantity">
               {
                 <i
                   className="fas fa-minus minus"
@@ -48,7 +48,7 @@ const Items = ({
               }
               <input style={{color:"black", fontSize:"30px", fontWeight:"600"}} type="text" placeholder={qty_1} />
               <i className="fas fa-plus add" onClick={() => increment(_id)}></i>
-            </div>
+            </div> */}
 
             <div className="price">
               <h3>{qty_1 * price_1kg}$</h3>

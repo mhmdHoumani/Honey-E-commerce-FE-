@@ -12,6 +12,7 @@ import { Product } from "./pages/Product";
 import { useState } from "react";
 import { Single } from "./pages/SingleProduct/single";
 import SingleProd from "./components/SingleProduct/SingleProd";
+import { List } from "@material-ui/core";
 
 import Cart from "./components1/Cart";
 import { Loading } from "./components/loading page/Loading";
@@ -107,6 +108,17 @@ function App() {
                 </>
               }
             />
+
+<Route
+              path="/list"
+              element={
+                <>
+                 <List />
+                </>
+              }
+            />
+
+
           </Routes>
         </BrowserRouter>
       </div>

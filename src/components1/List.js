@@ -2,9 +2,8 @@ import * as React from "react";
 import styled, { css } from "styled-components";
 import Honey from "../Assets/Images/Honey.png";
 import { Link, useNavigate } from "react-router-dom";
-import {cardNumContaxt} from '../App';
+ 
 import { mobile, tablet } from "../responsive";
-
 
 export const CardWrapper = styled.div`
   overflow: hidden;
@@ -17,9 +16,7 @@ export const CardWrapper = styled.div`
   box-shadow: 0 0 10px 0 #bbbbbb;
   border-radius: 7px;
   ${mobile({ width: "300px" })}
-  ${tablet({ width: "300px"})}
-
-
+  ${tablet({ width: "300px" })}
 `;
 
 export const CardHeader = styled.header`
@@ -37,9 +34,8 @@ export const CardImage = styled.img`
   width: 384px;
   height: 384px;
   object-fit: contain;
-  ${mobile({ width: "200px", height: "200px"})}
-  ${tablet({ width: "290px", height: "250px"})}
-
+  ${mobile({ width: "200px", height: "200px" })}
+  ${tablet({ width: "290px", height: "250px" })}
 `;
 export const ProductDetails = styled.div`
   text-align: center;
@@ -52,7 +48,7 @@ export const ProductDesc = styled.h4`
   margin: 20px 0;
   line-height: normal;
   color: #aaa;
-  font-size: 16px; 
+  font-size: 16px;
   font: inherit;
 `;
 export const ProductPrice = styled.p`
@@ -74,7 +70,7 @@ export const ButtonWrapper = styled.div`
 `;
 
 export const ProductPageWrapper = styled.div`
-height: "90vh"
+  height: "90vh";
 `;
 
 export const CardButton = styled.button`
@@ -98,17 +94,12 @@ export const CardButton = styled.button`
   }
 `;
 
-export const Card = (props) => {
-  const { title, description,weight,price_1kg, price_500g, avatar , _id} = props;
-  const navigate=useNavigate()
+export const List = ( ) => {
+ 
 
   return (
-   
-      <ProductPageWrapper>
-
-     
-      
-      <CardWrapper >
+    <ProductPageWrapper>
+      <CardWrapper>
         <CardHeader>
           <CardImage src={avatar} />
           <CardHeading>{title}</CardHeading>
@@ -121,14 +112,11 @@ export const Card = (props) => {
             <ProductPrice>{price_1kg}$</ProductPrice>
           </ProductDetails>
           <ButtonWrapper>
-          <CardButton type="button">Add to cart</CardButton>
-          <CardButton type="button" 
-          onClick={()=>navigate('/product-details', { state: { title, description, price_1kg,price_500g, avatar , _id}} )}
-          >show product</CardButton>
+            <CardButton type="button">Add to cart</CardButton>
+            <CardButton type="button">show product</CardButton>
           </ButtonWrapper>
         </CardBody>
       </CardWrapper>
-      </ProductPageWrapper>
-    
+    </ProductPageWrapper>
   );
 };

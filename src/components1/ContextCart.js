@@ -5,7 +5,7 @@ import { CartContext } from "./Cart";
 import Navbar from "../components/NavBar";
 import { navigate, useNavigate } from "react-router-dom";
 
-const Cart = () => {
+const Cart = () => { 
   const { item, totalAmount } = useContext(CartContext);
   let cart = JSON.parse(localStorage.getItem("cart_products")) || [];
   // console.log(cart[0].total_qty);
@@ -62,7 +62,7 @@ const Cart = () => {
       <section className="main-cart-section">
         <h1>shopping Cart</h1>
         <p className="total-items">
-          you have <span className="total-items-count">{count} </span> items in
+          you have <span className="total-items-count">{count} </span>  items in
           shopping cart
         </p>
 
