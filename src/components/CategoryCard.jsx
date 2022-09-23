@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 // import Honey from "../Assets/Images/Honey.png";
 import { categories } from "./data";
-import { mobile, tablet} from "../responsive";
+import { mobile} from "../responsive";
 // import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 
@@ -24,8 +24,7 @@ export const CardWrapper = styled.div`
   font-family: Quicksand, arial, sans-serif;
   box-shadow: 0 0 10px 0 #bbbbbb;
   border-radius: 7px;
-  ${mobile({ width: "300px",  marginBottom: "6%"})}
-  ${tablet({ width: "300px",  marginBottom: "6%"})}
+
 `;
 
 export const CardHeader = styled.header`
@@ -42,7 +41,7 @@ export const CardHeading = styled.h1`
 export const CardImage = styled.img`
   width: 384px;
   height: 384px;
-  object-fit: cover;
+  object-fit: contain;
 `;
 export const ProductDetails = styled.div`
   text-align: center;
@@ -117,7 +116,7 @@ const CategoryCard = () => {
 
             <CardBody>
               <ProductDetails>
-                {/* <ProductName>{item.cat}</ProductName> */}
+                <ProductName>{item.cat}</ProductName>
                 <ProductDesc>Honey and hive</ProductDesc>
                 {/* <ProductPrice>20$</ProductPrice> */}
               </ProductDetails>
