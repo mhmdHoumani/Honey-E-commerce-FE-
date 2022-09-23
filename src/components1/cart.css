@@ -132,7 +132,7 @@ body {
   /* position: relative; */
   /* margin-bottom: 10rem;   */
   /* padding-bottom: 30rem; */
-  padding-top:650px;
+  padding-top:450px;
   margin: auto;
   animation: fadeIn 2.5s;
   display: flex;
@@ -170,10 +170,11 @@ body {
 }
 
 .total-items-count {
-  font-weight: bold;
+  font-weight:bolder;
   /* color: var(--yellow); */
-  background-color: #ffb800;
-  border: solid 1px black;
+  /* background-color: #ffb800; */
+  /* border: solid 1px black; */
+  color:#000000;
   /* padding: 0.42rem 0.7rem 0.42rem 0.7rem; */
   border-radius: 50px;
   /* margin-right: 10px; */

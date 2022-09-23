@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 // import { Announcement } from "../../components/Announcement";
-import Navbar from "../../components/NavBar";
+// import Navbar from "../../components/NavBar";
 import { Slider } from "../../components/Slider";
 import CategoryCard from "../../components/CategoryCard";
 import styled from "styled-components";

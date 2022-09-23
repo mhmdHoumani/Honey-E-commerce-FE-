@@ -296,9 +296,13 @@ import { Scrollbars } from "react-custom-scrollbars-2";
 import { CartContext } from "./cart1";
 
 const ContextCart = () => {
+  const handleClear = () =>{
+    window.location.reload();
+  }
+  
   // cosumer
   const { item, totalAmount, totalItems, clearCart } = useContext(CartContext);
-  {
+  
     if (item.length === 0) {
       return (
         <>
@@ -352,6 +356,6 @@ const ContextCart = () => {
       );
     }
   }
-};
+
 
 export default ContextCart;

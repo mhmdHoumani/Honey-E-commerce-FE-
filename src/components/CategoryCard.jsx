@@ -41,7 +41,7 @@ export const CardHeading = styled.h1`
 export const CardImage = styled.img`
   width: 384px;
   height: 384px;
-  object-fit: contain;
+  object-fit: cover;
 `;
 export const ProductDetails = styled.div`
   text-align: center;
@@ -116,7 +116,7 @@ const CategoryCard = () => {
 
             <CardBody>
               <ProductDetails>
-                <ProductName>{item.cat}</ProductName>
+                {/* <ProductName>{item.cat}</ProductName> */}
                 <ProductDesc>Honey and hive</ProductDesc>
                 {/* <ProductPrice>20$</ProductPrice> */}
               </ProductDetails>
