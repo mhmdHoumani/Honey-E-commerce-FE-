@@ -12,54 +12,49 @@ const Login = (props) => {
   const [passwordError, setPasswordError] = useState("");
   const navigate = useNavigate();
 
-
-    useEffect(() => {
-      const token = localStorage.getItem("token");
-
-      // I need to validate if the token is a valid
-      if (token) {
-        navigate("/");
-   window.location.reload();
-
-      }
-      else{
-        // props.setLogin(true)
-        navigate("/login");
-        
-
-      }
-    }, []);
-
   useEffect(() => {
-  }, [])
-  
+    const token = localStorage.getItem("token");
+
+    // I need to validate if the token is a valid
+    if (token) {
+      navigate("/");
+      window.location.reload();
+    } else {
+      // props.setLogin(true)
+      navigate("/login");
+    }
+  }, []);
+
+  useEffect(() => {}, []);
+
   async function login(e) {
     e.preventDefault();
     setGeneralError("");
 
     try {
       let item = { email, password };
-      let result = await fetch("http://localhost:5000/user/login", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(item),
-      });
+      let result = await fetch(
+        `${process.env.REACT_APP_BACKEND_URL}/user/login`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(item),
+        }
+      );
       localStorage.setItem("token", JSON.stringify(result.token));
       result = await result.json();
       console.log(result);
       if (result.message) {
         setGeneralError(result.message);
-      }
-      else{
+      } else {
         localStorage.setItem("token", JSON.stringify(result.token));
         localStorage.setItem("id", JSON.stringify(result._id));
-       
+
         // props.setLogin(false);
         navigate("/");
         window.location.reload();
-
       }
     } catch (err) {
       console.log(err);

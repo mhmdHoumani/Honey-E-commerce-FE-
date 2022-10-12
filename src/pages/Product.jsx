@@ -8,7 +8,7 @@ const Container = styled.div`
   display: flex;
   flex-wrap: wrap;
   justify-content: space-evenly;
-  
+
   ${mobile({ flexDirection: "column" })}
   ${tablet({})}
 `;
@@ -29,7 +29,7 @@ export const Product = () => {
   console.log(state);
   const getData = async () => {
     setLoading(true);
-    const response = await fetch(`http://127.0.0.1:5000/products/`)
+    await fetch(`${process.env.REACT_APP_BACKEND_URL}/products/`)
       // let res = await response.json();
       // setData(res);
       // console.log(res);
@@ -43,13 +43,13 @@ export const Product = () => {
           if (state.filter) {
             console.log("hi gi");
             console.log("shown");
-            setShown(data.filter((ele) => ele.categories.includes(state.category)));
+            setShown(
+              data.filter((ele) => ele.categories.includes(state.category))
+            );
           }
-      
         });
       });
 
-   
     console.log(shown);
   };
 

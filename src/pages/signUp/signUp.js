@@ -28,7 +28,7 @@ const SignUp = () => {
 
     try {
       let item = { name, email, password };
-      let result = await fetch("http://localhost:5000/user/", {
+      let result = await fetch(`${process.env.REACT_APP_BACKEND_URL}/user/`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -135,9 +135,12 @@ const SignUp = () => {
           >
             Sign Up
           </Button>
-          <div className="notMemberBtn"  onClick={() => navigate("/login")}>
+          <div className="notMemberBtn" onClick={() => navigate("/login")}>
             Already a member?{" "}
-            <span className="notloggedBtn" onClick={() => navigate("/login")}>Log in</span>.
+            <span className="notloggedBtn" onClick={() => navigate("/login")}>
+              Log in
+            </span>
+            .
           </div>
         </div>
       </Box>
